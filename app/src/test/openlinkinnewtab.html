@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <style type="text/css">
+            p {background: gray; padding: 100px;}
+        </style>
+    </head>
+    <body>
+    <p>Some test text <a href="http://autosport.com">link test</a> test</p>
+    <p>Some test text <a href="http://autosport.com">link test</a> test</p>
+    <script type="text/javascript">
+    // TODO TRY CATCH..
+//if(!WebKitMutationObserver){
+//    return;
+//}
+var observer = new WebKitMutationObserver(function(mutations){
+    for (var m=0; m < mutations.length; m++){
+        for (var n=0; mutations[m].addedNodes.length; n++){
+            console.log(n);
+            var node = mutations[m].addedNodes[n];
+            node.addEventListener("mousedown", start);
+            node.addEventListener("touchstart", start);
+            node.addEventListener("click", click);
+            node.addEventListener("mouseout", cancel);
+            node.addEventListener("touchend", cancel);
+            node.addEventListener("touchleave", cancel);
+            node.addEventListener("touchcancel", cancel);
+        }
+    }
+});
+observer.observe(document, {childList:true});
+var nodes = document.getElementsByTagName("a");
+var longpress = false;
+var presstimer = null;
+var longtarget = null;
+
+var cancel = function(e) {
+    if (presstimer !== null) {
+        clearTimeout(presstimer);
+        presstimer = null;
+    }
+};
+
+var click = function(e) {
+    if (presstimer !== null) {
+        clearTimeout(presstimer);
+        presstimer = null;
+    }
+    if (longpress) {
+        return false;
+    }
+};
+
+var start = function(e) {
+    if (e.type === "click" && e.button !== 0) {
+        return;
+    }
+    longpress = false;
+    presstimer = setTimeout(function(e) {
+        if(!e || !e.target){
+            return;
+        }
+        var href = e.target.getAttribute("href");
+        var linkTxt = (e.target.textContent+'').trim();
+        alert("long click "+ href + " = "+linkTxt);
+        fpandroid.setSelectedItem("range", linkTxt, href);
+        longpress = true;
+    }, 500, e);
+
+    return false;
+};
+/*if(nodes && nodes.length > 0){
+    for(var n=0; n<nodes.length; n++){
+        nodes[n].addEventListener("mousedown", start);
+        nodes[n].addEventListener("touchstart", start);
+        nodes[n].addEventListener("click", click);
+        nodes[n].addEventListener("mouseout", cancel);
+        nodes[n].addEventListener("touchend", cancel);
+        nodes[n].addEventListener("touchleave", cancel);
+        nodes[n].addEventListener("touchcancel", cancel);
+    }
+}*/
+    </script>
+    </body>
+</html>

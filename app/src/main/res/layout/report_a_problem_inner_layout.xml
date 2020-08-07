@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="fishpowered.best.browser.ReportAProblem"
+    tools:showIn="@layout/report_a_problem_layout"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/settings_heading"
+        android:text="@string/problem_with_a_web_page_try_disabling_hint"
+        />
+    <TextView
+        style="@style/settings_paragraph"
+        android:text="@string/try_disabling_blockers"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/disabling_site_blockers_tip" />
+    <TextView
+        style="@style/settings_heading"
+        android:text="@string/is_google_chrome_and_fishpowered_up_to_date"
+        />
+    <TextView
+        style="@style/settings_paragraph"
+        android:text="@string/google_chrome_needs_to_be_kept_up_to_date_because"
+        />
+    <TextView
+        style="@style/settings_heading"
+        android:text="@string/still_having_problems"
+        />
+    <TextView
+        style="@style/settings_paragraph"
+        android:text="@string/click_the_button_to_send_us_an_email"
+        />
+</LinearLayout>

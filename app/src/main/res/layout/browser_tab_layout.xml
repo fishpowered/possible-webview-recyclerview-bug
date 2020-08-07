@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/browser_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:focusable="true"
+    android:layerType="hardware"
+    android:background="#000000"
+    android:layout_margin="0dp">
+
+    <WebView
+        android:id="@+id/activity_main_webview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="0dp"
+        android:importantForAutofill="yes"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/main_nav_bar_layout"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView android:id="@+id/loading_view_mask"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/main_nav_bar_layout"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@android:drawable/ic_menu_save"
+        />
+
+    <ProgressBar
+        android:id="@+id/loadingBar"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="visible"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:progressDrawable="@drawable/loading_bar_gradient"
+        />
+
+    <LinearLayout
+        android:id="@+id/main_nav_bar_layout"
+        android:layout_height="62dp"
+        android:background="?addressBarBackgroundAttr"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:visibility="visible"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:gravity="center">
+        <!-- if you set layout_width to 0dp and set the layout_weight for each of the buttons to 1, the available width will be shared equally between the buttons.-->
+
+
+        <!-- For BG splash effect: android:background="?android:attr/selectableItemBackground" -->
+        <FrameLayout
+            android:id="@+id/navButtonFrame1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.15"
+            >
+            <ImageButton
+                android:id="@+id/navButton1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:tint="?mainNavBarIconColour"
+                android:gravity="center"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_context_menu_pin_24dp"
+                tools:ignore="ContentDescription" />
+            <TextView
+                android:id="@+id/navButtonTextOverlay1"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="1dp"
+                android:textColor="?mainNavBarIconColour"
+                android:textAlignment="center"
+                android:maxLines="1"
+                android:maxLength="2"
+                android:gravity="center"
+                android:textSize="10dp"
+                android:textStyle="bold"
+                tools:ignore="SpUsage" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/navButtonFrame2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.15"
+            >
+            <ImageButton
+                android:id="@+id/navButton2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:tint="?mainNavBarIconColour"
+                android:gravity="center"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_nav_bar_refresh_24dp"
+                tools:ignore="ContentDescription" />
+            <TextView
+                android:id="@+id/navButtonTextOverlay2"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="1dp"
+                android:textColor="?mainNavBarIconColour"
+                android:textAlignment="center"
+                android:maxLines="1"
+                android:maxLength="2"
+                android:gravity="center"
+                android:textSize="10dp"
+                android:textStyle="bold"
+                tools:ignore="SpUsage" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/address_hint"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.40"
+            android:gravity="center"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:ellipsize="end"
+            android:singleLine="false"
+            android:maxLines="1"
+            android:scrollHorizontally="false"
+            android:clickable="true"
+            android:longClickable="true"
+            android:textColor="?mainNavBarIconColour"
+            android:text="clear history"
+            android:background="@android:color/transparent"
+            android:focusable="true" />
+        <FrameLayout
+            android:id="@+id/navButtonFrame3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.15"
+        >
+            <ImageButton
+                android:id="@+id/navButton3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:tint="?mainNavBarIconColour"
+                android:gravity="center"
+                android:background="@android:color/transparent"
+                tools:ignore="ContentDescription" />
+            <TextView
+                android:id="@+id/navButtonTextOverlay3"
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="1dp"
+                android:textColor="?mainNavBarIconColour"
+                android:textAlignment="center"
+                android:maxLines="1"
+                android:maxLength="2"
+                android:gravity="center"
+                android:text="ADDR"
+                android:textSize="10dp"
+                android:textStyle="bold"
+                tools:ignore="SpUsage" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/navButtonFrame4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.15"
+            >
+            <ImageButton
+                android:id="@+id/navButton4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:tint="?mainNavBarIconColour"
+                android:gravity="center"
+                android:background="@android:color/transparent"
+                tools:ignore="ContentDescription" />
+            <TextView
+                android:id="@+id/navButtonTextOverlay4"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="1dp"
+                android:textColor="?mainNavBarIconColour"
+                android:textAlignment="center"
+                android:maxLines="1"
+                android:maxLength="2"
+                android:gravity="center"
+                android:textSize="10dp"
+                android:textStyle="bold"
+                tools:ignore="SpUsage" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <!-- </HorizontalScrollView> -->
+
+    <!-- Mounting points to dynamically load in menus... -->
+    <FrameLayout
+        android:id="@+id/page_context_menu_holder"
+        android:orientation="horizontal"
+        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toTopOf="@id/main_nav_bar_layout"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+        <!-- context menu dynamically loaded in here -->
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/find_in_page_menu_holder"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="horizontal"
+        android:layout_height="52dp"
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toTopOf="@id/main_nav_bar_layout"
+        android:gravity="center">
+        <!-- context menu dynamically loaded in here -->
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/selection_context_menu_holder"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="horizontal"
+        android:layout_height="52dp"
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toTopOf="@id/main_nav_bar_layout"
+        android:gravity="center">
+        <!-- context menu dynamically loaded in here -->
+    </LinearLayout>
+
+    <View
+        android:id="@+id/close_open_dialog_mask"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:onClick="onHideSitePreferencesDialogMaskClick"
+        android:background="#000000"
+        android:alpha="0.3"
+        />
+
+    <FrameLayout
+        android:id="@+id/site_preferences_holder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@id/selection_context_menu_holder"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constrainedHeight="true"
+        app:layout_constrainedWidth="true"
+        >
+    </FrameLayout>
+
+ </androidx.constraintlayout.widget.ConstraintLayout>

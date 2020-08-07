@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="theme_list">
+        <item>Fishpowered</item>
+        <item>Dark</item>
+        <item>Pink</item>
+        <item>Light</item>
+        <item>Unicorn</item>
+        <item>LazyBlue</item>
+        <item>Hacker</item>
+        <item>Wasp</item>
+        <item>Blush</item>
+        <item>WhatPlantsCrave</item>
+        <item>Broody</item>
+        <item>Summer</item>
+        <item>Tested</item>
+        <item>Leaf</item>
+        <item>Haiku</item>
+        <item>Spring</item>
+        <item>Mint</item>
+        <!--<item>Wood</item> fix performance-->
+        <item>Slate</item>
+        <item>Petrol</item>
+    </string-array>
+    <string-array name="download_images_values">
+        <item>always</item>
+        <item>onlyOnWiFi</item>
+        <item>never</item>
+    </string-array>
+    <string-array name="gesture_swipe_up_nav_bar_values">
+        <item>closeTab</item>
+        <item>showSpeedDial</item>
+        <item>refresh</item>
+        <item>disabled</item>
+    </string-array>
+    <string-array name="gesture_swipe_to_change_tab_values">
+        <item>100%</item>
+        <item>50%</item>
+        <item>25%</item>
+        <item>0%</item>
+    </string-array>
+    <string-array name="gesture_swipe_from_edge_values">
+        <item>switchTabs</item>
+        <item>navigateBack</item>
+        <item>navigateForward</item>
+        <item>disabled</item>
+    </string-array>
+    <string-array name="gesture_swipe_down_when_at_top_values">
+        <item>pullTabDown</item>
+        <item>refresh</item>
+        <item>showSpeedDial</item>
+        <item>viewFaves</item>
+        <item>viewWhatsHot</item>
+        <item>viewSavedForLater</item>
+        <item>viewHistory</item>
+        <item>viewTabsOverview</item>
+        <item>disabled</item>
+    </string-array>
+    <string-array name="default_text_search_engine_list_values">
+        <item>ask</item>
+        <item>baidu</item>
+        <item>bing</item>
+        <item>duckduckgo</item>
+        <item>ecosia</item>
+        <item>google</item>
+        <item>wolframalpha</item>
+        <item>yandex</item>
+    </string-array>
+    <!-- REMEMBER TO UPDATE strings.xml address_hint_action_titles WHEN UPDATING LIST
+    <string-array name="address_hint_action_values">
+        <item>searchOrEnterAddress</item>
+        <item>copyPageUrl</item>
+        <item>addPageToFaves</item>
+        <item>goToDefaultSearchEngine</item>
+        <item>sharePageUrl</item>
+        <item>showPageMenu</item>
+        <item>openBrowserSettings</item>
+    </string-array>-->
+    <!-- REMEMBER TO UPDATE strings.xml nav_button_option_titles WHEN UPDATING LIST -->
+    <string-array name="nav_button_option_values">
+        <item>searchOrEnterAddress</item>
+        <item>voiceSearch</item>
+        <item>navigateBack</item>
+        <item>navigateForward</item>
+        <item>refresh</item>
+        <item>copyPageUrl</item>
+        <item>pasteToSearchOrGo</item>
+        <item>sharePageUrl</item>
+        <item>newTab</item>
+        <item>viewTabsOverview</item>
+        <item>viewClosedTabsOverview</item>
+        <item>closeAllTabs</item>
+        <item>togglePrivateMode</item>
+        <item>showPageMenu</item>
+        <item>showSpeedDial</item>
+        <item>viewFaves</item>
+        <item>viewWhatsHot</item>
+        <item>viewSavedForLater</item>
+        <item>viewHistory</item>
+        <item>goToDefaultSearchEngine</item>
+        <item>goToCustomHomePage</item>
+        <item>pinToWindow</item>
+        <item>pullTabDown</item>
+        <item>openBrowserSettings</item>
+        <item>goToCats</item>
+        <item>noAction</item>
+    </string-array>
+
+    <string-array name="privacy_mode_values">
+        <item>lite</item>
+        <item>basic</item>
+        <!--<item>serious</item>-->
+        <item>extreme</item>
+    </string-array>
+
+    <!-- ITEMS BELOW MUST MATCH CODE AND DEFAULT VALUE -->
+    <string-array name="default_dictionary_list_titles">
+        <item>Wiktionary.org (multi-lingual)</item>
+        <item>Dictionary.com</item>
+        <item>Wordreference.com (French-English)</item>
+        <item>Wordreference.com (Spanish-English)</item>
+        <item>Wordreference.com (Italian-English)</item>
+
+        <item>Wordreference.com (English-Italy)</item>
+        <item>Wordreference.com (English-French)</item>
+        <item>Wordreference.com (English-Spanish)</item>
+
+        <item>Collinsdictionary.com (Chinese-English)</item>
+        <item>Collinsdictionary.com (French-English)</item>
+        <item>Collinsdictionary.com (German-English)</item>
+        <item>Collinsdictionary.com (Italian-English)</item>
+        <item>Collinsdictionary.com (Portuguese-English)</item>
+
+        <item>Collinsdictionary.com (English-Chinese)</item>
+        <item>Collinsdictionary.com (English-French)</item>
+        <item>Collinsdictionary.com (English-German)</item>
+        <item>Collinsdictionary.com (English-Italian)</item>
+        <item>Collinsdictionary.com (English-Portuguese)</item>
+
+        <item>Bab.la (Vietnamese-English)</item>
+    </string-array>
+</resources>

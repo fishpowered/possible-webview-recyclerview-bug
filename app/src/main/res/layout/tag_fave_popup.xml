@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="100dp"
+    android:id="@+id/tag_fave_popup_layout"
+    >
+    <TextView
+        android:id="@+id/done_and_close_tag_dialog"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#cc000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tag_n_title_vertical_layout"
+        android:text="@string/done"
+        android:textColor="#46BD00"
+        android:layout_marginEnd="10dp"
+        android:textAllCaps="true"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/edit_fave_btn"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#cc000000"
+        app:layout_constraintEnd_toStartOf="@id/done_and_close_tag_dialog"
+        app:layout_constraintBottom_toTopOf="@id/tag_n_title_vertical_layout"
+        android:text="@string/edit_fave"
+        android:textColor="#FF5722"
+        android:layout_marginEnd="10dp"
+        android:textAllCaps="true"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#cc000000"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/tag_n_title_vertical_layout"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tag_fave_title"
+            android:drawablePadding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="foo.com added to fave pages"
+            android:textColor="#ffffff"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:textStyle="bold"/>
+
+        <!--
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/tab_bullet_hint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:flexWrap="wrap"
+            app:alignItems="flex_start"
+            app:alignContent="flex_start"
+            app:justifyContent="flex_start"
+            >
+        </com.google.android.flexbox.FlexboxLayout> -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tag_scroll_view"
+            >
+            <LinearLayout
+                android:id="@+id/tag_list_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:orientation="horizontal">
+
+                <!-- TEST TAG ....
+                <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#000"
+                    android:id="@+id/testfave_tag_item_view_layout"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginStart="5dp"
+                    >
+                    <TextView
+                        android:id="@+id/testtag_tv"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:text="TEST TAG"
+                        android:textAllCaps="true"
+                        android:textColor="#ffffff"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:paddingStart="7dp"
+                        android:paddingEnd ="7dp"
+                        />
+                </FrameLayout>
+                <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorAccent"
+                    android:id="@+id/testfave_tag_item_view_layout"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginStart="5dp"
+                    >
+                    <TextView
+                        android:id="@+id/testtag_tv"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:text="TEST TAG"
+                        android:textAllCaps="true"
+                        android:textColor="#ffffff"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:paddingStart="7dp"
+                        android:paddingEnd ="7dp"
+                        />
+                </FrameLayout>
+                <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#000"
+                    android:id="@+id/testfave_tag_item_view_layout"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginStart="5dp"
+                    >
+                    <TextView
+                        android:id="@+id/testtag_tv"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:text="TEST TAG"
+                        android:textAllCaps="true"
+                        android:textColor="#ffffff"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:paddingStart="7dp"
+                        android:paddingEnd ="7dp"
+                        />
+                </FrameLayout>
+                <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#000"
+                    android:id="@+id/testfave_tag_item_view_layout"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginStart="5dp"
+                    >
+                    <TextView
+                        android:id="@+id/testtag_tv"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:text="TEST TAG"
+                        android:textAllCaps="true"
+                        android:textColor="#ffffff"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:paddingStart="7dp"
+                        android:paddingEnd ="7dp"
+                        />
+                </FrameLayout>
+                <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#444"
+                    android:id="@+id/test2fave_tag_item_view_layout"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginStart="5dp"
+                    >
+                    <TextView
+                        android:id="@+id/test2tag_tv"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:drawableStart="@drawable/ic_add_tag_mini"
+                        android:text="ADD TAG"
+                        android:textAllCaps="true"
+                        android:textColor="#ffffff"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:paddingStart="7dp"
+                        android:paddingEnd ="7dp"
+                        />
+
+                </FrameLayout>
+                 END OF TEST TAG -->
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

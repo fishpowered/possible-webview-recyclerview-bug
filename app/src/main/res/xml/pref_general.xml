@@ -1,0 +1,279 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/pref_header_appearance">
+        <ListPreference
+            android:defaultValue="Fishpowered"
+            android:entries="@array/theme_list"
+            android:entryValues="@array/theme_list"
+            android:key="themeName"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/pref_header_theme" />
+        <SwitchPreference
+            android:key="hideSystemNavBar"
+            android:defaultValue="@string/defaultHideSystemNavBar"
+            android:title="@string/full_screen_except_time_bar" />
+        <SwitchPreference
+            android:key="compactNavBar"
+            android:defaultValue="false"
+            android:title="@string/compact_size" />
+        <SwitchPreference
+            android:key="autoHideNavBar"
+            android:defaultValue="@string/defaultAutoHideNavBar"
+            android:title="@string/auto_hide_nav_bar_title" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_header_customise_nav_bar"
+        android:key="customiseButtonsCategory"
+        >
+        <Preference
+            android:key="customiseNavBtnPreview"
+            android:layout="@layout/customise_nav_bar_address_hint" />
+        <!-- NAV BUTTON 1 OPTIONS -->
+        <ListPreference
+            android:key="quickPressNavBtn1Action"
+            android:defaultValue="@string/defaultNavButton1Action"
+            android:entries="@array/nav_button_option_titles"
+            android:entryValues="@array/nav_button_option_values"
+            android:summary="%s"
+            android:title="@string/quick_press_nav_button" />
+        <ListPreference
+            android:key="longPressNavBtn1Action"
+            android:defaultValue="@string/defaultNavButton1LongPressAction"
+            android:entries="@array/nav_button_option_titles"
+            android:entryValues="@array/nav_button_option_values"
+            android:summary="%s"
+            android:title="@string/long_press_nav_button" />
+        <!-- NAV BUTTON 2 OPTIONS -->
+        <ListPreference
+            android:key="quickPressNavBtn2Action"
+            android:defaultValue="@string/defaultNavButton2Action"
+            android:entries="@array/nav_button_option_titles"
+            android:entryValues="@array/nav_button_option_values"
+            android:summary="%s"
+            android:title="@string/quick_press_nav_button" />
+        <ListPreference
+            android:key="longPressNavBtn2Action"
+            android:defaultValue="@string/defaultNavButton2LongPressAction"
+            android:entries="@array/nav_button_option_titles"
+            android:entryValues="@array/nav_button_option_values"
+            android:summary="%s"
+            android:title="@string/long_press_nav_button" />
+        <!-- Address hint options -->
+        <ListPreference
+            android:key="quickPressAddressHintAction"
+            android:defaultValue="@string/defaultAddressHintAction"
+            android:entries="@array/nav_button_option_titles"
+            android:entryValues="@array/nav_button_option_values"
+            android:summary="%s"
+            android:title="@string/quick_press_address_hint" />
+        <ListPreference
+            android:key="longPressAddressHintAction"
+            android:defaultValue="@string/defaultAddressHintLongPressAction"
+            android:entries="@array/nav_button_option_titles"
+            android:entryValues="@array/nav_button_option_values"
+            android:summary="%s"
+            android:title="@string/long_press_address_hint" />
+        <!-- NAV BUTTON 3 OPTIONS -->
+        <ListPreference
+            android:key="quickPressNavBtn3Action"
+            android:defaultValue="@string/defaultNavButton3Action"
+            android:entries="@array/nav_button_option_titles"
+            android:entryValues="@array/nav_button_option_values"
+            android:summary="%s"
+            android:title="@string/quick_press_nav_button" />
+        <ListPreference
+            android:key="longPressNavBtn3Action"
+            android:defaultValue="@string/defaultNavButton3LongPressAction"
+            android:entries="@array/nav_button_option_titles"
+            android:entryValues="@array/nav_button_option_values"
+            android:summary="%s"
+            android:title="@string/long_press_nav_button" />
+        <!-- NAV BUTTON 4 OPTIONS -->
+        <ListPreference
+            android:key="quickPressNavBtn4Action"
+            android:defaultValue="@string/defaultNavButton4Action"
+            android:entries="@array/nav_button_option_titles"
+            android:entryValues="@array/nav_button_option_values"
+            android:summary="%s"
+            android:title="@string/quick_press_nav_button" />
+        <ListPreference
+            android:key="longPressNavBtn4Action"
+            android:defaultValue="@string/defaultNavButton4LongPressAction"
+            android:entries="@array/nav_button_option_titles"
+            android:entryValues="@array/nav_button_option_values"
+            android:summary="%s"
+            android:title="@string/long_press_nav_button" />
+        <EditTextPreference
+            android:key="customHomePage"
+            android:title="@string/home_page_address"
+            android:hint="@string/default_address_bar_text"
+            android:summary="%s"
+            />
+    </PreferenceCategory>
+
+    <!-- GESTURES -->
+    <PreferenceCategory android:title="@string/pref_content_category_gestures">
+        <ListPreference
+            android:key="gestureSwipeDownWhenAtTop"
+            android:defaultValue="@string/defaultGestureSwipeDownWhenAtTop"
+            android:entries="@array/gesture_swipe_down_when_at_top_titles"
+            android:entryValues="@array/gesture_swipe_down_when_at_top_values"
+            android:enabled="true"
+            android:summary="%s"
+            android:title="@string/swipe_down_at_top_of_page" />
+        <ListPreference
+            android:key="gestureSwipeToChangeTabsBottomThreshold"
+            android:title="@string/swipe_to_change_tabs"
+            android:inputType="text"
+            android:defaultValue="@string/defaultGestureSwipeToChangeTabsBottomThreshold"
+            android:summary="%s"
+            android:entries="@array/gesture_swipe_to_change_tab_entries"
+            android:entryValues="@array/gesture_swipe_to_change_tab_values"
+            />
+        <ListPreference
+            android:key="gestureSwipeUpNavBar"
+            android:defaultValue="@string/defaultGestureSwipeUpNavBar"
+            android:entries="@array/gesture_swipe_up_nav_bar_titles"
+            android:entryValues="@array/gesture_swipe_up_nav_bar_values"
+            android:enabled="true"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/swipe_up_nav_bar" />
+
+        <Preference android:title="@string/swipe_from_edges"
+            android:key="showMoreGestureSettings"
+            />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_header_searching_lookup">
+        <ListPreference
+            android:key="defaultTextSearchEngine"
+            android:defaultValue="@string/defaultTextSearchEngineValue"
+            android:entries="@array/default_text_search_engine_list_titles"
+            android:entryValues="@array/default_text_search_engine_list_values"
+            android:summary="%s"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:title="@string/default_text_search_engine" />
+        <ListPreference
+            android:key="defaultImageSearchEngine"
+            android:defaultValue="@string/defaultImageSearchEngineValue"
+            android:entries="@array/default_text_search_engine_list_titles"
+            android:entryValues="@array/default_text_search_engine_list_values"
+            android:enabled="false"
+            android:summary="%s"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:title="@string/default_image_search_engine" />
+        <ListPreference
+            android:key="default_dictionary"
+            android:defaultValue="@string/defaultDictionary"
+            android:entries="@array/default_dictionary_list_titles"
+            android:entryValues="@array/default_dictionary_list_titles"
+            android:summary="%s"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:title="@string/default_dictionary" />
+        <ListPreference
+            android:key="defaultTranslationEngine"
+            android:defaultValue="google"
+            android:entries="@array/default_translation_engine_list_titles"
+            android:entryValues="@array/default_translation_engine_list_values"
+            android:enabled="true"
+            android:summary="%s"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:title="@string/default_translation_engine" />
+        <!--<ListPreference
+            android:key="trendingSearchLocation"
+            android:defaultValue="Automatic"
+            android:entries="@array/trending_search_location_titles"
+            android:entryValues="@array/trending_search_location_titles"
+            android:enabled="true"
+            android:summary="%s"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:title="@string/trending_search_location" />-->
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_privacy_category_title">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="blockTrackingCookies"
+            android:summary="@string/block_tracking_cookies_summary"
+            android:title="@string/block_tracking_cookie" />
+        <ListPreference
+            android:key="privacyModeLevel"
+            android:defaultValue="@string/defaultPrivacyModeLevel"
+            android:entries="@array/privacy_mode_titles"
+            android:entryValues="@array/privacy_mode_values"
+            android:enabled="true"
+            android:summary="@string/select_a_level_to_learn_more"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:title="@string/privacy_mode_level" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="clearCookiesOnClose"
+            android:title="@string/clear_cookies_on_close" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_content_category_title">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="blockAds"
+            android:title="@string/block_ads" />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="hideGdprWarnings"
+            android:summary="@string/hide_cookie_warnings_description"
+            android:title="@string/hide_cookie_warnings" />
+        <SwitchPreference
+            android:defaultValue="@string/defaultShouldOpenRegularLinksInAppIfPossible"
+            android:key="openRegularLinksInApp"
+            android:title="@string/open_links_in_external_app"
+            />
+        <Preference android:title="@string/fonts_images_and_links"
+            android:key="showMoreContentSettings"
+            />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/other">
+
+        <SwitchPreference
+            android:key="closingLastTabClosesBrowser"
+            android:defaultValue="@string/defaultClosingLastTabClosesBrowser"
+            android:title="@string/closing_last_tab_closes_browser"
+            />
+
+        <SwitchPreference
+            android:key="closeAllTabsOnExit"
+            android:defaultValue="@string/defaultCloseAllTabsOnExit"
+            android:title="@string/close_all_tabs_on_exit"
+            />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/support_development">
+        <!-- <SwitchPreference
+            android:defaultValue="true"
+            android:key="sendCrashReports"
+            android:title="@string/send_crash_reports"
+            android:summary="@string/send_crash_reports_summary"
+            /> -->
+        <Preference android:title="@string/report_a_problem"
+            android:summary="@string/report_a_problem_summary"
+            android:key="reportProblemBtn"
+            />
+        <Preference android:title="@string/send_feedback_title"
+            android:summary="@string/send_feedback_summary"
+            android:key="sendFeedbackBtn"
+            />
+        <Preference android:title="@string/visit_play_store_title"
+            android:summary="@string/visit_play_store_summary"
+            android:key="shareAppBtn"
+            />
+    </PreferenceCategory>
+</PreferenceScreen>

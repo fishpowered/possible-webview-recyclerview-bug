@@ -1,0 +1,29 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="">
+        <ListPreference
+            android:key="gestureSwipeFromLeftEdgeV2"
+            android:defaultValue="@string/defaultGestureSwipeFromLeftEdgeV2"
+            android:entries="@array/gesture_swipe_from_edge_titles"
+            android:entryValues="@array/gesture_swipe_from_edge_values"
+            android:enabled="true"
+            android:summary="%s"
+            android:title="@string/swipe_from_left_edge" />
+        <ListPreference
+            android:key="gestureSwipeFromRightEdgeV2"
+            android:defaultValue="@string/defaultGestureSwipeFromRightEdgeV2"
+            android:entries="@array/gesture_swipe_from_edge_titles"
+            android:entryValues="@array/gesture_swipe_from_edge_values"
+            android:enabled="true"
+            android:summary="%s"
+            android:title="@string/swipe_from_right_edge" />
+        <EditTextPreference
+            android:key="gestureSwipeFromEdgeThreshold"
+            android:title="@string/swipe_from_edge_threshold"
+            android:inputType="text"
+            android:defaultValue="@string/defaultGestureEdgeSwipePercentage"
+            android:summary="@string/default_screen_edge_threshold"
+            />
+    </PreferenceCategory>
+
+</PreferenceScreen>

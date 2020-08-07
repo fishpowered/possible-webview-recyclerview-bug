@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="false">
+        <layer-list>
+            <item android:drawable="@drawable/chip_view_shadow" android:top="6dp"/>
+            <item android:drawable="@drawable/chip_view_btn_face" android:bottom="2.8dp"/>
+        </layer-list>
+    </item>
+
+    <item android:state_pressed="true">
+        <layer-list>
+            <item android:drawable="@drawable/chip_view_shadow" android:top="6dp" />
+            <item android:drawable="@drawable/chip_view_btn_face_pressed" android:top="2.8dp" android:bottom="0.5dp" />
+
+        </layer-list>
+    </item>
+</selector>

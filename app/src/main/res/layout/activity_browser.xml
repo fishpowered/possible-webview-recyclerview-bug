@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/browser_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:hardwareAccelerated="true"
+    android:layerType="hardware"
+    android:background="#000000"
+    tools:context="fishpowered.best.browser.Browser">
+
+    <!-- Tabs -->
+    <fishpowered.best.browser.TabRecyclerView
+        android:id="@+id/tab_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hardwareAccelerated="true"
+        android:layerType="hardware"
+        android:cacheColorHint="#000000"
+        >
+    </fishpowered.best.browser.TabRecyclerView>
+
+    <!-- Speed dial wrapper -->
+    <androidx.constraintlayout.widget.ConstraintLayout android:visibility="gone"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:id="@+id/speed_dial_container"
+        >
+        <!-- SPEED DIAL UPPER TOOLBAR -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/speed_dial_toolBar_wrapper"
+            android:layout_height="42dp"
+            android:background="?addressBarBackgroundAttr"
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:visibility="visible"
+            android:paddingStart="3dp"
+            android:paddingEnd="3dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            >
+            <ImageView
+                android:id="@+id/speed_dial_back_btn"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:src="@drawable/ic_speed_dial_back_2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:contentDescription="@string/title_back"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="10dp"
+                />
+            <ImageView
+                android:id="@+id/speed_dial_fwd_btn"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:visibility="gone"
+                android:src="@drawable/ic_speed_dial_back_2"
+                android:rotation="180"
+                app:layout_constraintStart_toEndOf="@id/speed_dial_back_btn"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:contentDescription="@string/title_back"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="10dp"
+                />
+            <ImageView
+                android:id="@+id/speed_dial_settings_btn"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:contentDescription="@string/title_activity_browser_settings"
+                android:src="@drawable/ic_context_menu_settings_24dp"
+                android:tint="?mainNavBarIconColour"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="10dp"
+                android:visibility="gone"
+
+                />
+            <ImageView
+                android:id="@+id/togglePrivateModeBtn"
+                android:src="@drawable/ic_private_mode_mask"
+                android:tint="?privateModeIconColor"
+                android:onClick="onTogglePrivateModeBtnClick"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_marginEnd="0dp"
+                android:padding="10dp"
+                android:contentDescription="@string/delete_all"
+                android:clickable="true" android:focusable="true"
+                app:layout_constraintEnd_toStartOf="@id/speed_dial_settings_btn"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:visibility="gone"
+
+                />
+            <ImageView
+                android:id="@+id/nightModeToggleBtn"
+                android:src="@drawable/ic_nightmode_off"
+                android:tint="?mainNavBarIconColour"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:onClick="onToggleNightModeBtnClick"
+                android:layout_marginEnd="0dp"
+                android:padding="12dp"
+                android:contentDescription="@string/delete_all"
+                android:clickable="true" android:focusable="true"
+                app:layout_constraintEnd_toStartOf="@id/togglePrivateModeBtn"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:visibility="gone"
+
+                />
+            <FrameLayout
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                app:layout_constraintEnd_toStartOf="@id/nightModeToggleBtn"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="11dp"
+                android:layout_marginStart="6dp"
+                android:visibility="gone"
+
+                >
+                <ImageView
+                    android:id="@+id/viewTabsSpeedDialBtn"
+                    android:src="@drawable/ic_nav_bar_tab_icon_numeric"
+                    android:tint="?mainNavBarIconColour"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:gravity="center"
+                    android:onClick="onViewOpenTabsBtnClick"
+                    android:contentDescription="@string/delete_all"
+                    android:clickable="true" android:focusable="true"
+                    />
+                <TextView
+                    android:id="@+id/speed_dial_tab_counter"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:textColor="?mainNavBarIconColour"
+                    android:textAlignment="center"
+                    android:maxLines="1"
+                    android:maxLength="2"
+                    android:gravity="center"
+                    android:textSize="10dp"
+                    android:textStyle="bold"
+                    tools:ignore="SpUsage" />
+            </FrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- SPEED DIAL LIST HEADERS -->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/speed_dial_list_header_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/speed_dial_toolBar_wrapper"
+            android:paddingTop="25dp"
+            android:paddingBottom="15dp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="?speedDialBgColour"
+            android:visibility="gone"
+
+            >
+            <ImageView
+                android:id="@+id/speed_dial_faves_btn"
+                android:src="@drawable/ic_favorite_selected_red_24dp"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="1dp"
+                android:padding="4dp"
+                android:clickable="true" android:focusable="true"
+                />
+
+            <ImageView
+                android:id="@+id/speed_dial_whats_hot_btn"
+                android:src="@drawable/ic_speed_dial_whats_hot"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:padding="6.5dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="3dp"
+                android:clickable="true" android:focusable="true"
+                />
+            <ImageView
+                android:id="@+id/speed_dial_read_later_list_btn"
+                android:src="@drawable/ic_speed_dial_read_later_head"
+                android:drawablePadding="5dp"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="3dp"
+                android:clickable="true" android:focusable="true"
+                tools:ignore="RtlHardcoded" />
+            <ImageView
+                android:id="@+id/speed_dial_history_btn"
+                android:src="@drawable/ic_speed_dial_history"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="3dp"
+                android:padding="3dp"
+                android:clickable="true" android:focusable="true"
+                />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <!-- SPEED DIAL LISTS RECYCLER VIEW -->
+        <fishpowered.best.browser.speeddial.list.SpeedDialListsRecyclerView
+            android:id="@+id/speed_dial_horizontal_list_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingStart="24dp"
+            android:paddingEnd="20dp"
+            app:layout_constraintTop_toBottomOf="@id/speed_dial_list_header_container"
+            app:layout_constraintBottom_toTopOf="@id/addressBarWrapper"
+            android:scrollbars="none"
+            android:clipToPadding="true"
+            android:cacheColorHint="?speedDialBgColour"
+            android:background="?speedDialBgColour"
+            >
+        </fishpowered.best.browser.speeddial.list.SpeedDialListsRecyclerView>
+
+        <!-- OPEN DOWNLOADS BUTTON -->
+        <TextView
+            style="@style/speed_dial_in_page_button_styles"
+            android:id="@+id/openDownloadsBtn"
+            android:drawableEnd="@drawable/ic_downloads_mini"
+            android:text="@string/downloads"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:onClick="openDownloadManagerActivity"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@id/speed_dial_list_header_container"
+            app:layout_constraintBottom_toTopOf="@id/addressBarWrapper"
+            />
+
+        <!-- CLEAR HISTORY BUTTON -->
+        <TextView
+            style="@style/speed_dial_in_page_button_styles"
+            android:id="@+id/clearHistoryBtn"
+            android:drawableEnd="@drawable/ic_delete_btn_mini"
+            android:text="@string/clear_history_btn_title"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@id/speed_dial_list_header_container"
+            app:layout_constraintBottom_toTopOf="@id/addressBarWrapper"
+            />
+
+        <!-- SITE HOME PAGE BUTTON -->
+        <TextView
+            style="@style/speed_dial_in_page_button_styles"
+            android:id="@+id/siteHomePageBtn"
+            android:drawableStart="@drawable/ic_homepage_mini"
+            android:text="@string/clear_history_btn_title"
+            android:maxLines="1"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="15dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@id/speed_dial_list_header_container"
+            app:layout_constraintBottom_toTopOf="@id/addressBarWrapper"
+            />
+
+        <!-- Address bar wrapper -->
+        <!-- if you set layout_width to 0dp and set the layout_weight for each of the buttons to 1, the available width will be shared equally between the buttons.-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/addressBarWrapper"
+            android:layout_height="62dp"
+            android:background="?addressBarBackgroundAttr"
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:visibility="visible"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:gravity="center"
+            >
+            <fishpowered.best.browser.AddressInputEditText
+                android:id="@+id/addressBarInput"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                    android:textColor="?mainNavBarIconColour"
+                android:textColorHint="?mainNavBarIconColour"
+                android:background="@drawable/address_input_bg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:hint="@string/default_address_bar_text"
+                android:ems="10"
+                android:inputType="textUri|textNoSuggestions"
+                android:bufferType="editable"
+                android:selectAllOnFocus="true"
+                android:paddingStart="32dp"
+                android:paddingEnd="32dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:textSize="16sp"
+                />
+            <!-- BUTTONS MUST APPEAR AFTER ADDRESS INPUT ABOVE OTHERWISE BTN CLICKS WILL BE BLOCKED -->
+            <ImageView
+                android:id="@+id/address_search_eng_hint_btn"
+                android:visibility="visible"
+                android:contentDescription="@string/add"
+                android:layout_width="34dp"
+                android:layout_height="24dp"
+                android:clickable="true"
+                android:tint="?mainNavBarIconColour"
+                android:alpha="0.9"
+                android:src="@drawable/ic_context_menu_search_google_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingStart="20dp"
+                android:focusable="true"
+                />
+            <ImageView
+                android:id="@+id/go_to_address_btn"
+                android:visibility="gone"
+                android:alpha="0.9"
+                android:contentDescription="go"
+                android:layout_width="34dp"
+                android:layout_height="24dp"
+                android:clickable="true"
+                android:tint="?mainNavBarIconColour"
+                android:src="@drawable/ic_address_bar_go"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingStart="20dp"
+                android:focusable="true"
+                />
+            <ImageView
+                android:id="@+id/address_bar_back"
+                android:visibility="gone"
+                android:alpha="0.9"
+                android:contentDescription="go"
+                android:layout_width="34dp"
+                android:layout_height="24dp"
+                android:clickable="true"
+                android:tint="?mainNavBarIconColour"
+                android:src="@drawable/ic_address_bar_return"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingStart="20dp"
+                android:focusable="true"
+                />
+            <ImageView
+                android:id="@+id/add_fave_from_address_btn"
+                android:visibility="gone"
+                android:alpha="0.9"
+                android:contentDescription="@string/add"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:clickable="true"
+                android:tint="?mainNavBarIconColour"
+                android:src="@drawable/ic_context_menu_favorite_unselected_24dp"
+                app:layout_constraintEnd_toStartOf="@id/clear_address_and_mic_btn"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingEnd="10dp"
+                android:layout_marginEnd="10dp"
+                android:focusable="true"
+                />
+            <ImageView
+                android:id="@+id/clear_address_and_mic_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.9"
+                android:contentDescription="@string/clear"
+                android:clickable="true"
+                android:src="@drawable/ic_nav_bar_clear_address_18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:paddingEnd="20dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:focusable="true" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/forty_percent_guideline"
+        android:layout_height="1dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.38"/>
+    <TextView
+        android:id="@+id/forty_percent_hint_text"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#555555"
+        android:text="@string/close_pull_down_mode_hint"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/forty_percent_guideline"
+        />
+    <TextView
+        android:id="@+id/tab_swipe_lock_btn"
+        android:text="@string/tab_scroll"
+        android:textColor="?contextMenuIconColour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:gravity="center_vertical"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textAllCaps="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="75dp"
+        android:background="@drawable/site_preferences_background"
+        android:elevation="5dp"
+        android:visibility="gone"
+        />
+
+    <!-- Tab overview thumbs -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/tab_overview_thumbs_container"
+        android:background="@color/tab_overlay_darken"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:visibility="gone"
+    >
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/tab_overview_top_btn_guideline"
+            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.13"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/tab_overview_open_closed_guideline"
+            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.25"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/tab_action_btn_guideline"
+            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.88"/>
+
+
+        <!-- CLOSE ALL TABS BTN -->
+        <TextView
+            style="@style/tab_overview_button_styles"
+            android:id="@+id/close_all_open_tabs_btn"
+            android:drawableStart="@drawable/ic_close_open_tabs"
+            android:background="@drawable/tab_overview_btn_background_red_border"
+            android:text="@string/close_all"
+            android:textColor="@color/close_all_red"
+            android:clickable="true" android:focusable="true"
+            app:layout_constraintTop_toTopOf="@id/tab_overview_top_btn_guideline"
+            app:layout_constraintBottom_toBottomOf="@id/tab_overview_top_btn_guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:elevation="0dp"
+            />
+        <!-- INCOGNITO MODE BTN -->
+        <TextView
+            style="@style/tab_overview_button_styles"
+            android:id="@+id/enable_incognito_mode"
+            android:drawableStart="@drawable/ic_private_mode_mask"
+            android:onClick="onTogglePrivateModeBtnClick"
+            android:clickable="true" android:focusable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tab_overview_top_btn_guideline"
+            app:layout_constraintBottom_toBottomOf="@id/tab_overview_top_btn_guideline"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:elevation="0dp"
+            android:text="@string/go_incognito"
+             />
+        <!-- tab overview headers: "OPEN TABS(2) / RECENTLY CLOSED TABS"  -->
+        <LinearLayout
+            style="@style/tab_overview_button_styles"
+            android:id="@+id/tab_overview_thumbs_header"
+            android:visibility="visible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tab_overview_open_closed_guideline"
+            app:layout_constraintBottom_toBottomOf="@id/tab_overview_open_closed_guideline"
+            android:orientation="horizontal"
+        >
+            <TextView
+                style="@style/tab_overview_header_text_styles"
+                android:id="@+id/open_tabs_text_view"
+                android:text="@string/open_tabs"
+                android:clickable="true" android:focusable="true"
+                />
+            <TextView
+                style="@style/tab_overview_header_text_styles"
+                android:id="@+id/divider_text_view"
+                android:text="/"
+                android:clickable="true" android:focusable="true"
+                tools:ignore="HardcodedText" />
+            <TextView
+                style="@style/tab_overview_header_text_styles"
+                android:id="@+id/recently_closed_tabs_text_view"
+                android:text="@string/recently_closed"
+                android:clickable="true" android:focusable="true"
+                />
+        </LinearLayout>
+
+        <!-- ADD NEW TAB BUTTON -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/tab_overview_new_tab_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/tab_action_btn_guideline"
+            app:layout_constraintTop_toTopOf="@id/tab_action_btn_guideline"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:tint="#ffffff"
+            app:srcCompat="@drawable/ic_nav_bar_add_tab_28dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.flexbox.FlexboxLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/tab_bullet_hint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:flexWrap="wrap"
+        app:alignItems="center"
+        app:alignContent="center"
+        app:justifyContent="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="115dp">
+    </com.google.android.flexbox.FlexboxLayout>
+
+    <!-- Close tab threshold -->
+    <TextView
+        android:id="@+id/close_tab_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_close_tab_hint"
+        android:drawableEnd="@drawable/ic_close_tab_hint"
+        android:textAlignment="center"
+        android:textColor="#ffa200"
+        android:text="@string/close_tab"
+        android:alpha="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"
+        />
+    <ImageView
+        android:id="@+id/close_tab_threshold_line"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:alpha="0"
+        android:src="@drawable/close_tab_threshold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="120dp"
+        android:layerType="software"
+         />
+
+    <!-- Video -->
+    <FrameLayout android:visibility="gone"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:id="@+id/fullscreen_video_container"
+        android:background="@color/videoBackgroundColour"
+        >
+    </FrameLayout>
+
+    <!-- Lock screen black -->
+    <FrameLayout
+        android:id="@+id/screen_lock_black_mask"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="#000000"
+        />
+
+    <!-- Video controls TODO these could be loaded in -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/video_controls_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        >
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/video_controls_vertical_center"
+            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5"/>
+        <ImageView
+            android:id="@+id/fave_video_btn"
+            android:visibility="gone"
+            style="@style/video_control_btn_styles"
+            android:contentDescription="fave video"
+            android:src="@drawable/ic_context_menu_favorite_unselected_24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/rotate_screen_btn"
+            />
+        <ImageView
+            android:id="@+id/rotate_screen_btn"
+            style="@style/video_control_btn_styles"
+            android:contentDescription="rotate screen"
+            android:src="@drawable/ic_rotate_screen_btn"
+            android:elevation="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/lock_screen_btn"
+            />
+        <ImageView
+            android:id="@+id/lock_screen_btn"
+            style="@style/video_control_btn_styles"
+            android:contentDescription="lock screen"
+            android:src="@drawable/ic_video_screen_unlocked_big"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/video_controls_vertical_center"
+            app:layout_constraintBottom_toBottomOf="@id/video_controls_vertical_center"
+            />
+        <TextView
+            android:id="@+id/hold_to_unlock_text_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hold_to_unlock"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="50"
+            android:shadowColor="#000000"
+            android:textColor="@color/video_controls"
+            android:textSize="15dp"
+            android:textAllCaps="true"
+            app:layout_constraintStart_toEndOf="@id/lock_screen_btn"
+            app:layout_constraintTop_toTopOf="@id/lock_screen_btn"
+            android:paddingStart="5dp"
+            android:paddingTop="20dp"
+            android:visibility="gone"
+            tools:ignore="SpUsage" />
+        <ImageView
+            android:id="@+id/open_video_download_btn"
+            android:visibility="gone"
+            style="@style/video_control_btn_styles"
+            android:contentDescription="open video externally"
+            android:src="@drawable/ic_context_menu_file_download_24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lock_screen_btn"
+            />
+        <FrameLayout
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@color/overlay_darken_subtle"
+            android:layout_marginStart="9dp"
+            android:layout_marginEnd="9dp"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Tag fave dialog -->
+    <FrameLayout android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="100dp"
+        android:id="@+id/tag_fave_popup_mount_point"
+        >
+    </FrameLayout>
+
+    <!-- Loading graphic -->
+    <ImageView
+        android:id="@+id/loading_graphic"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:tint="?colorAccent"
+        android:background="@drawable/loading_animation"
+        android:layout_marginBottom="60dp"
+        android:alpha="50"
+        />
+
+    <TextView
+        android:id="@+id/onScreenDebug"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="#AAffffff"
+        android:visibility="gone"
+        />
+    <TextView
+        android:id="@+id/onScreenDebug2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/onScreenDebug"
+        android:background="#AAffffff"
+        android:visibility="gone"
+        />
+
+    <!-- Note: padding does not affect width/height i.e. not the same as CSS default box model:<View
+        android:id="@+id/RULER"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="#FF0000"
+        />-->
+</androidx.constraintlayout.widget.ConstraintLayout>

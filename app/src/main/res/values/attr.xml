@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- custom values that can be declared in themes (styles.xml) and used anywhere when declaring a view e.g. color="?mainNavBarIconColour" -->
+    <attr name="mainNavBarIconColour" format="reference|color"/>
+    <attr name="contextMenuIconColour" format="reference|color"/>
+    <attr name="contextMenuBgColour" format="reference|color"/>
+    <attr name="contextMenuTopBorder" format="reference|color"/>
+    <attr name="navBarTopBorder" format="reference|color"/>
+    <attr name="navBarGradientBeginColour" format="reference|color"/>
+    <attr name="navBarGradientEndColour" format="reference|color"/>
+    <attr name="loadingBarGradientStep1" format="reference|color"/>
+    <attr name="loadingBarGradientStep2" format="reference|color"/>
+    <attr name="loadingBarGradientStep3" format="reference|color"/>
+    <attr name="addressInputBg" format="reference|color"/>
+    <attr name="addressInputBorder" format="reference|color"/>
+    <attr name="speedDialBgColour" format="reference|color" />
+    <attr name="speedDialBtnBgColour" format="reference|color" />
+    <attr name="speedDialBtnFgColour" format="reference|color" />
+    <attr name="speedDialTagBackground" format="reference|color" />
+    <attr name="speedDialTagForeground" format="reference|color" />
+    <attr name="chipViewFaceColour" format="reference|color" />
+    <attr name="chipViewShadowColour" format="reference|color" />
+    <attr name="chipViewText" format="reference|color" />
+    <attr name="speedDialHintText" format="reference|color" />
+    <attr name="speedDialLoadingText" format="reference|color" />
+    <attr name="speedDialListHeadingInactive" format="reference|color" />
+    <attr name="privateModeIconColor" format="reference|color" />
+    <attr name="speedDialListFaveTheme" format="reference|color" />
+    <attr name="speedDialListSavedForLaterTheme" format="reference|color" />
+    <attr name="insecurePageColour" format="reference|color" />
+    <attr name="addressBarBackgroundAttr" format="reference" />
+
+</resources>

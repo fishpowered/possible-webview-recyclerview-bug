@@ -1,0 +1,346 @@
+<html>
+	<head>
+		<style type="text/css">
+		p{margin:20px; width:100px;}body{padding:10%}
+		aside{width:20%; position:fixed; right:0; top:0; height:100%;background:#ccc}
+		#cookieWarning{display:none}
+</style>
+
+	</head>
+	<body style="padding-top:2000px">
+	<!-- Top padding tests that we scroll the viewport if the user isn't over any speakable content -->
+		Body text
+		<div>
+			<article>
+				<!-- test a cookie warning that has been made invisible doesn't pick up the selection -->
+				<div style="position:absolute;top:0;left:0;width:100%;height:100%" id="cookieWarning">
+					<p>Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap.
+						Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap.
+						Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap.
+					</p>
+					<p>Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap.
+						Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap.
+						Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap.
+					</p>
+					<p>Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap.
+						Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap.
+						Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap.
+					</p>
+					<p>Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap.
+						Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap.
+						Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap.
+					</p>
+					<p>Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap.
+						Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap.
+						Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap. Cookie warning crap.
+					</p>
+				</div>
+				<h1>Heading 1</h1>
+				<p>paragraph one, <a href="foo">paragraph <em>em</em> oneb</a> paragraph onec. Test. Pause. . Even longer pause . . . Did that work? . . . .</p>
+				
+				<div style="padding:20px">
+					<p>paragraph two paragraph <acronym title="Radio detection and ranging">RADAR</acronym> two paragraph two</p>
+				</div>
+				<h2>Head 2</h2>
+				<div>
+					<p><span>paragraph three paragraph three paragraph</span></p>
+				</div>
+				<div style="visibility:hidden"><p>HIDDEN PARAGRAPH SHOULD NOT BE READ</p></div>
+				<ul class="">
+					<li><em class="zn">Main</em> list item 1</li>
+					<li>Main list item 2
+						<ul>
+							<li>Sub list 1</li>
+							<li>Sub list 2</li>
+						</ul>
+					</li>
+				</ul>
+				<p>Paragraph four...</p>
+				<div class="someWrapper">
+					<h6>List heading</h6>
+					<ol class="">
+						<li>First ordered list item</li>
+						<li>Second ordered list item</li>
+					</ol>
+					<h2>Heading two</h2>
+					<img class="bbc_img" src="https://i.ibb.co/n76h0T6/IMG-20190905-133210.jpg" alt="Merc rear wing" style="width: 20%;" />
+				</div>
+				END OF ARTICLE
+			</article>
+			<p>More body text</p>
+			<h2>Forum style content</h2>
+			<div itemprop="commentText" class="post entry-content ">
+				I am not sure with Monza. Its a difficult track to overtake on especially with Ferraris straight line speed. Lewis took kimi last year but kimis tyres were shot. <br><br>
+				i think they need attempt an undercut with on of the drivers and force ferrari to pit early. That may then bring the second driver into it later on.<br><br>
+				Having better race pace means you should be able to bluff an early stop and out ferrari on the back foot regarding tyres.
+				<br>
+				<!-- HTML COMMENT THAT SHOULD NOT BE READ -->
+				<script type="text/javascript">// JAVASCRIPT THAT SHOULD NOT BE READ;</script>
+			</div>
+			<aside><p>Side bar content</p><p>Side bar content</p><p>Side bar content</p><p>Side bar content</p><p>Side bar content</p><p>Side bar content</p></aside>
+			<nav><p>Nav bar content</p></nav>
+			<footer><p>some foot text</p></footer>
+		</div>
+		More body text
+		<script type="text/javascript">
+			document.fpHideMasks = function(){
+				let nodes = document.querySelectorAll('.fpSelectableParagraph');
+				for(let i=0;i<nodes.length;i++){
+					nodes[i].classList.remove('fpSelectableParagraph');
+				}
+				// separate query to guarantee we remove everything..
+				nodes = document.querySelectorAll('.fpSelectableBtnMask');
+				for(let i=0;i<nodes.length;i++){
+					nodes[i].parentNode.removeChild(nodes[i]);
+				}
+			}
+			document.fpIsNodeHidden = function(el) {
+				return (el.offsetParent === null)
+			}
+			document.fpInjectStyles = function(escapedCss){
+				let parent = document.getElementsByTagName('html').item(0);
+				let parent2 = document.getElementsByTagName('head') ? document.getElementsByTagName('head').item(0) : null;
+				let style = document.createElement('style');
+				style.type = 'text/css';
+				style.className = 'fpTempStyles';
+				style.innerHTML = escapedCss;
+				parent.appendChild(style);
+				if(parent2){parent2.appendChild(style);}
+			}
+			document.fpChooseStartingParagraph = function(){
+				document.fpInjectStyles(
+					'.fpSelectableParagraph{position:relative!important;}'
+					+'.fpSelectableBtnMask{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,157,255,0.2);outline:2px solid #00aaff;cursor:crosshair;display:block!important}'
+					+'.fpSelectableParagraph .fpSelectableParagraph .fpSelectableBtnMask{opacity:0;}'
+					+'nav .fpSelectableBtnMask, aside .fpSelectableBtnMask,header .fpSelectableBtnMask,footer .fpSelectableBtnMask{display:none!important}'
+				);
+				var nodes = document.querySelectorAll('p,div>br,blockquote,ul,ol'); // div>br for WYSIWYG edited sites
+				var hasAddedStartingPoint = false;
+				var hasNodeInsideViewPort = false;
+				var maskCount = 0;
+				for(let i=0;i<nodes.length;i++){
+					let textNode = null;
+					if(nodes[i].nodeName=='BR'){
+						textNode = nodes[i].nodeName=='BR' ? nodes[i].parentElement : nodes[i];
+						if(textNode.querySelector('p,blockquote,ul,ol,h1,h2,h3,h4,h5,h6')){
+							// The div has child nodes that would be better suited for the selectable bit instead of the parent
+							continue;
+						}
+					}else{
+						textNode = nodes[i];
+					}	
+					if((textNode.innerText+'').trim().length==0){
+						continue;
+					}
+					if(textNode.classList.contains('fpSelectableParagraph')){
+						continue; // prevent mask being added twice in case of div>br selector
+					}
+					if(document.fpNodeIsInvisible(textNode)){
+						// we don't want to pick up hidden elements like cookie warnings. Even though this isn't a problem for css we need to keep it so the jump to start works
+						//console.log("SKIPPING ");
+						//console.log(textNode);
+						continue;
+					}
+					if(document.fpNodeHasParent(textNode, ['FOOTER', 'ASIDE', 'HEAD', 'NAV'], true)){
+						// skip nav, footer and sidebar nodes
+						continue;
+					}
+					textNode.classList.add('fpSelectableParagraph');
+					var selectable = document.createElement('i');
+					selectable.className = 'fpSelectableBtnMask';
+					selectable.id = 'fpSelectableBtnMask_'+maskCount;
+					selectable.addEventListener('click', function(e) {
+						selectable.style.backgroundColor = '#00aaffAA';
+						document.fpSpeakFromNode(textNode);
+					});
+					textNode.appendChild(selectable);
+					hasAddedStartingPoint = true;
+					if(!hasNodeInsideViewPort){
+						var renderCoordinates = textNode.getBoundingClientRect();
+						if (
+							renderCoordinates.bottom >= 0 &&
+							renderCoordinates.right >= 0 &&
+							renderCoordinates.left < (window.innerWidth || document.documentElement.clientWidth) &&
+							window.innerHeight > 0 && renderCoordinates.top <= (window.innerHeight-200)
+						) {
+	console.log('NOT SCROLLING, FOUND EL INSIDE VIEWPORT...');
+	console.log(renderCoordinates);
+	console.log(textNode);
+	console.log("Window.innerHeight="+window.innerHeight+" clietHeight="+document.documentElement.clientHeight);
+							hasNodeInsideViewPort = true;
+						}else if(maskCount==0){
+	console.log(renderCoordinates);
+						}
+					}
+					maskCount++;
+				}
+				if(!hasAddedStartingPoint){
+					fpandroid.cancelTextToSpeech();
+				}else if(!hasNodeInsideViewPort){
+					document.fpScrollToViewEl(0, false);
+				}
+
+				// Clean up any tagged paragraphs from previous times TTS was started on this page
+				var cleanUpNodes = document.querySelectorAll('*[data-fishpoweredspeechid]');
+				if(cleanUpNodes){
+					for(var x=0;x<cleanUpNodes.length;x++){
+					console.log(cleanUpNodes[x]);
+						cleanUpNodes[x].removeAttribute("data-fishpoweredspeechid");
+					}
+				}
+			}
+			document.fpScrollToViewEl = function(firstElId, useDataAttribute){
+				var firstEl = null;
+				if(useDataAttribute){
+					firstEl= document.querySelector('*[data-fishpoweredspeechid="'+firstElId+'"]');
+				}else{
+					firstEl= document.getElementById('fpSelectableBtnMask_'+firstElId);
+				}
+				if(firstEl && firstEl.scrollIntoView){
+					console.log('scrolling to:');
+					console.log(firstEl);
+					firstEl.scrollIntoView({behavior:'smooth', block:'center'});
+				}else if(firstEl && !window.location.hash){
+					// support for older browsers
+					window.location.hash = firstElId;
+				}else{
+					console.log('Unable to scroll to '+firstElId);
+				}
+			}
+
+			// Returns first parent found of parentTypes
+			document.fpNodeHasParent = function(node, parentTypes, includeSelf){
+				if(includeSelf && parentTypes.indexOf(node.nodeName) > -1){
+					return parentTypes[parentTypes.indexOf(node.nodeName)];
+				}
+				if(node.parentElement){
+					if(parentTypes.indexOf(node.parentElement.nodeName) > -1){
+						return parentTypes[parentTypes.indexOf(node.parentElement.nodeName)];
+					}else{
+						return document.fpNodeHasParent(node.parentElement, parentTypes, false);
+					}
+				}
+				return false;
+			}
+			document.fpNodeIsInvisible = function(node){
+				if(window.getComputedStyle(node).visibility === "hidden" || window.getComputedStyle(node).display === "none"){
+					return true;
+				}
+				if(node.offsetWidth===0 || node.offsetHeight===0){
+					return true;
+				}
+				if(node.parentElement){
+                    return document.fpNodeIsInvisible(node.parentElement);
+				}
+				return false;
+			}
+			document.fpCheckInsideDivForBetterChild = function(divNode){
+				// If the div is just a container for some block level content element we should jump to that
+				var childNode = divNode.querySelector('p,ul,ol,blockquote,h1,h2,h3,h4,h5,h6');
+				if(childNode){
+					return childNode;
+				}
+				return divNode; // otherwise just read out the div content
+			}
+			document.fpGetNextSibling = function(node){
+				if(!node){
+					return null;
+				}
+				if(node.nextSibling){
+					return node.nextSibling;
+				}else if(node.parentElement){
+					return document.fpGetNextSibling(node.parentElement);
+				}
+				return null;	
+			}
+			document.fpSpeakFromNode = function(node){
+				
+			// TODO abbreviations..
+			// TODO improve how list elements are crawled
+			// TODO skip invisible elements
+				if(!node){
+					return;
+				}
+				var isStartingNode = true;
+				var resp = [];
+				// If the starting node is in an aside for example, we don't want to read past the aside
+				var mainSection = document.fpNodeHasParent(node, ['MAIN', 'ARTICLE', 'BODY', 'FOOTER', 'ASIDE', 'HEAD', 'NAV'], true);
+				console.log("MAINSECTION: "+mainSection);
+				var speechNodeCount = 0;
+				do{	
+					if(!isStartingNode && !document.fpNodeHasParent(node, [mainSection], true)){ 
+						// Stop speaking if we have reached a different part of the document e.g. the footer
+						console.log("BREAKING BECAUSE NO LONGER IN MAINSECTION: "+mainSection);
+						break;
+					}
+					
+					if(node.children && node.nodeName!='UL' && node.nodeName!='OL' && node.nodeName!='P' && node.nodeName!='H1'
+					 && node.nodeName!='H2' && node.nodeName!='H3' && node.nodeName!='H4' && node.nodeName!='H6' && node.nodeName!='LI'
+					 && node.nodeName!='Q'&& node.nodeName!='SPAN'){
+						// if it's a container, try and look for a child that we know we should read
+						node = document.fpCheckInsideDivForBetterChild(node);
+					}
+					
+					var tag = node.nodeName ? node.nodeName : '?';
+					var txtContent = '';
+					var elementId = '';
+					switch(tag){
+						
+						case 'UL':
+						case 'OL':
+							// Add bullets/numbers to lists
+							var listNodes = node.querySelectorAll(':scope > li'); // get's only direct children of node otherwise sub list items can be read twice
+							if(listNodes){
+								for(var i=0;i<listNodes.length;i++){
+									if(node.nodeName=='OL'){
+										txtContent += (i+1)+') '+listNodes[i].innerText+'. ';
+									}else{
+										txtContent += '[bullet] '+listNodes[i].innerText+'. ';
+									}
+								}
+							}
+							break;
+						
+						// WHite listed..
+						case 'P':
+						case 'H1':
+						case 'H2':
+						case 'H3':
+						case 'H4':
+						case 'H5':
+						case 'H6':
+						case 'OL':
+						case 'UL':
+						case 'LI':
+						case 'BODY':
+						case 'DIV':
+						case 'BLOCKQUOTE':
+							txtContent = (node.innerText+'').trim();
+							break;
+						case 'IMG':
+							txtContent = (node.getAttribute('alt') || node.getAttribute('title'));
+							break;
+						case 'table':
+						default:
+							txtContent = '';
+							break;
+					}
+					if(txtContent.length > 0 && !document.fpIsNodeHidden(node)){
+						var elementId = speechNodeCount;
+						node.setAttribute("data-fishpoweredspeechid", elementId);
+						//node.style.backgroundColor = "red"; <- useful debug
+						resp.push([tag, elementId, txtContent]);
+					}
+					node = document.fpGetNextSibling(node);
+					isStartingNode = false;
+					speechNodeCount++;
+				}while(node);
+				document.fpHideMasks();
+				//console.log(JSON.stringify(resp));
+				fpandroid.speakContent(JSON.stringify(resp));
+			}
+			document.fpChooseStartingParagraph();
+		
+		</script>
+	</body>
+</html>

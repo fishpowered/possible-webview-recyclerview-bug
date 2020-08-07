@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/fave_tag_item_view_layout"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:paddingStart="5dp"
+    android:paddingEnd="5dp"
+    >
+    <TextView
+        android:id="@+id/tag_tv"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="TEST TAG"
+        android:textAllCaps="true"
+        android:textColor="#ffffff"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingStart="7dp"
+        android:paddingEnd ="7dp"
+        />
+
+</FrameLayout>

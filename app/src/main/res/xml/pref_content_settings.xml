@@ -1,0 +1,30 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/text_settings_title">
+        <EditTextPreference
+            android:key="webContentTextSize"
+            android:title="@string/default_text_size"
+            android:inputType="number"
+            android:defaultValue="100"
+            />
+        <EditTextPreference
+            android:key="webContentMinTextSize"
+            android:title="@string/minimum_text_size"
+            android:inputType="number"
+            />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/images">
+        <ListPreference
+            android:key="downloadImages"
+            android:defaultValue="@string/defaultDownloadImages"
+            android:entries="@array/download_images_options"
+            android:entryValues="@array/download_images_values"
+            android:enabled="true"
+            android:summary="%s"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:title="@string/download_images" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

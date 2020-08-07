@@ -1,0 +1,298 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <!-- Define custom style "classes" in attr.xml and use with a ?className -->
+    <style name="FishpoweredCommon" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- App title bar background (visible on settings and edit fave activity) -->
+        <item name="colorPrimary">#444444</item>
+        <!-- Phone time bar background  -->
+        <item name="colorPrimaryDark">#444444</item>
+        <item name="android:textColor">#111111</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="loadingBarGradientStep1">#ffb4e8</item>
+        <item name="loadingBarGradientStep2">#fd2ec6</item>
+        <item name="loadingBarGradientStep3">#8e136d</item>
+        <item name="addressInputBg">#33ffffff</item>
+        <item name="addressInputBorder">#3cffffff</item>
+        <item name="contextMenuTopBorder">#00ffffff</item>
+        <item name="speedDialBgColour">#F7F7F7</item>
+        <item name="chipViewFaceColour">#ffffff</item>
+        <item name="chipViewShadowColour">#D3D3D3</item>
+        <item name="chipViewText">#000000</item>
+        <item name="speedDialTagBackground">#c0c0c0</item>
+        <item name="speedDialTagForeground">#ffffff</item>
+        <item name="speedDialHintText">#333333</item>
+        <item name="speedDialBtnBgColour">#EEEEEE</item>
+        <item name="speedDialBtnFgColour">?speedDialHintText</item>
+        <item name="speedDialLoadingText">#aaaaaa</item>
+        <item name="speedDialListHeadingInactive">#C3C3C3</item>
+        <item name="privateModeIconColor">?mainNavBarIconColour</item>
+        <item name="speedDialListFaveTheme">#EF619D</item>
+        <item name="speedDialListSavedForLaterTheme">#3685e1</item>
+        <item name="insecurePageColour">#FF0000</item>
+        <item name="addressBarBackgroundAttr">@drawable/address_bar_gradient_background</item>
+        <!-- Nav bar styling only works on some phones i.e. not LG :( -->
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">#000000</item>
+    </style>
+
+    <style name="chip_view_common_styles">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:scrollHorizontally">false</item>
+        <item name="android:textColor">?attr/chipViewText</item>
+        <item name="android:textSize">12.5sp</item>
+        <item name="android:background">@drawable/chip_view_selector</item>
+    </style>
+
+    <style name="speed_dial_show_more_ellipsis">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/show_more_abbr</item>
+        <item name="android:textSize">32dp</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:scrollHorizontally">false</item>
+        <item name="android:textColor">?speedDialListFaveTheme</item>
+    </style>
+
+    <style name="settings_heading">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">?colorAccent</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+    <style name="settings_paragraph">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+
+    <style name="speed_dial_heading_styles">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:scrollHorizontally">false</item>
+        <item name="android:textColor">#EF619D</item>
+        <item name="android:textSize">12.3sp</item>
+        <item name="android:fontFamily">@font/francois_one_regular</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="tab_bullet_hint_outer_styles">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">10dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@drawable/tab_hint_bullet_shape_outer</item>
+    </style>
+
+    <style name="tab_bullet_hint_inner_styles">
+        <item name="android:layout_width">4dp</item>
+        <item name="android:layout_height">4dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@drawable/tab_hint_bullet_shape_inner</item>
+    </style>
+
+    <style name="tab_bullet_shadow_styles">
+        <item name="android:layout_width">12dp</item>
+        <item name="android:layout_height">12dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@drawable/tab_hint_bullet_shape_shadow</item>
+    </style>
+
+    <!-- Action bar text colour -->
+    <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">#0000FF</item>
+    </style>
+
+    <!-- PRIVATE/INGOGNITO MODE -->
+    <style name="privateMode" parent="FishpoweredCommon">
+    </style>
+
+    <!-- NIGHT MODE -->
+    <style name="NightMode" parent="FishpoweredCommon">
+    </style>
+
+    <!-- User selectable themes -->
+    <style name="Dark" parent="FishpoweredCommon">
+    </style>
+
+    <style name="Light" parent="FishpoweredCommon">
+    </style>
+
+    <style name="LazyBlue" parent="FishpoweredCommon">
+    </style>
+
+    <style name="Summer" parent="FishpoweredCommon">
+    </style>
+
+    <style name="Wood" parent="FishpoweredCommon">
+    </style>
+
+    <style name="WhatPlantsCrave" parent="FishpoweredCommon">
+    </style>
+
+    <style name="Fishpowered" parent="FishpoweredCommon">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <!-- Phone time bar -->
+        <item name="colorPrimaryDark">#000000</item>
+        <item name="colorAccent">#ff4ab9</item>
+        <item name="contextMenuBgColour">#f7f7f7</item>
+        <item name="contextMenuTopBorder">#AA076B</item>
+        <item name="contextMenuIconColour">#0f0f0f</item>
+        <item name="mainNavBarIconColour">#ffffff</item>
+        <item name="navBarGradientBeginColour">#1B1B1B</item>
+        <item name="navBarGradientEndColour">#252525</item>
+        <item name="loadingBarGradientStep1">#ffb4e8</item>
+        <item name="loadingBarGradientStep2">#fd2e81</item>
+        <item name="loadingBarGradientStep3">#8e136d</item>
+    </style>
+
+    <style name="Blush" parent="FishpoweredCommon">
+    </style>
+
+    <style name="Tested" parent="FishpoweredCommon">
+    </style>
+
+    <style name="Haiku" parent="FishpoweredCommon">
+    </style>
+
+    <style name="Slate" parent="FishpoweredCommon">
+    </style>
+
+    <style name="Petrol" parent="FishpoweredCommon">
+    </style>
+
+    <style name="Pink" parent="FishpoweredCommon">
+    </style>
+
+    <style name="Leaf" parent="FishpoweredCommon">
+    </style>
+
+    <style name="Unicorn" parent="FishpoweredCommon">
+    </style>
+
+    <style name="Hacker" parent="FishpoweredCommon">
+    </style>
+
+    <style name="Broody" parent="FishpoweredCommon">
+    </style>
+
+    <style name="Spring" parent="FishpoweredCommon">
+    </style>
+
+    <style name="Mint" parent="FishpoweredCommon">
+    </style>
+
+    <style name="Wasp" parent="FishpoweredCommon">
+    </style>
+
+
+    <style name="Fishpowered.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Fishpowered.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Fishpowered.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="speed_dial_in_page_button_styles">
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingStart">13dp</item>
+        <item name="android:paddingEnd">13dp</item>
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">?speedDialBtnFgColour</item>
+        <item name="android:background">@drawable/speed_dial_inpage_btn_background</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:elevation">5dp</item>
+    </style>
+
+    <style name="tab_overview_button_styles">
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">30dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/tab_overview_btn_border_and_txt_colour</item>
+        <item name="android:background">@drawable/tab_overview_btn_background_grey_border</item>
+        <item name="android:elevation">10dp</item>
+    </style>
+
+    <style name="tab_overview_header_text_styles">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/tab_overview_btn_border_and_txt_colour</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+    </style>
+
+    <style name="video_control_btn_styles">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:tint">@color/video_controls</item>
+        <item name="android:clickable">true</item>
+        <item name="android:elevation">5dp</item>
+        <item name="android:focusable">true</item>
+        <item name="android:padding">15dp</item>
+        <item name="android:layout_marginTop">7dp</item>
+        <item name="android:layout_marginBottom">7dp</item>
+    </style>
+
+    <style name="pageCtxMenuBtnLayout">
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">70dp</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_marginStart">0dp</item>
+        <item name="android:layout_marginEnd">0dp</item>
+        <item name="android:paddingTop">2dp</item>
+    </style>
+    <style name="pageCtxMenuBtnIcon">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:paddingStart">7dp</item>
+        <item name="android:paddingEnd">7dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:contentDescription">Share</item>
+        <item name="android:tint">?contextMenuIconColour</item>
+    </style>
+    <style name="pageCtxMenuBtnCaption">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">9sp</item>
+        <item name="android:layout_marginTop">42dp</item>
+        <item name="android:textColor">?contextMenuIconColour</item>
+    </style>
+</resources>

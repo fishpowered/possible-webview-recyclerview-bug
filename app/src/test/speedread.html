@@ -1,0 +1,76 @@
+<html>
+	<head>
+	<script type="text/javascript">
+	function getNodes(){
+		var selection = window.getSelection();
+        if (selection.rangeCount > 0){
+            var node = selection.getRangeAt(0).startContainer.parentNode;
+			var resp = '';
+			if(node){
+				var getDisplayType = function  (element) {
+					var cStyle = element.currentStyle || window.getComputedStyle(element, ""); 
+					return cStyle.display;
+				};
+				var displayType = getDisplayType(node);
+				while(displayType=="inline"){
+					node = node.parentNode;
+					displayType = getDisplayType(node);
+				}
+				var range = window.getSelection().getRangeAt(0);
+				
+				var getSelectionOffset = function(element){
+					var range = window.getSelection().getRangeAt(0);
+					var selected = range.toString().length;
+					var preCaretRange = range.cloneRange();
+					preCaretRange.selectNodeContents(element);
+					preCaretRange.setEnd(range.endContainer, range.endOffset);
+
+					if(selected){
+						return( preCaretRange.toString().length - selected);
+					} else {
+						return( preCaretRange.toString().length); 
+					}
+				};
+				caretOffset = getSelectionOffset(node);
+				do{
+					var txtContent = (node.textContent+'').trim();
+					txtContent = txtContent.substr(caretOffset);
+					caretOffset = 0;
+					if(txtContent.length > 0){
+						var tag = node.tagName ? node.tagName : "?"; 
+						resp += '|^|'+tag+"_=_"+txtContent;
+					}
+					if(!node.nextSibling){
+						if(node.focus){
+							node.focus();
+						}
+						node = null;
+					}else{
+						node = node.nextSibling;
+					}
+				}while(node);
+			}
+			return resp;
+		}
+	}
+	
+	//window.setInterval(getSelectionText, 5000);
+	</script>
+	</head>
+	<body>
+		<div>
+			<article>
+				<h1>Heading 1</h1>
+				<p>paragraph one, <a href="foo">paragraph <em>em</em> oneb</a> paragraph onec</p>
+				<div>
+					<p>paragraph two paragraph two paragraph two</p>
+				</div>
+				<h2>Heading two</h2>
+				<img src="" />
+				some text 3
+			</article>
+			<p>More body text</p>
+			<footer>some foot text</footer>
+		</div>
+	</body>
+</html>

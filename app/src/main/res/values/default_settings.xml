@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Because we need to use defaults in XML and Java, it's easiest to store them here and then
+         they can be referenced by either getString(R.string.defaultXxx) in code or @string/defaultXxx in xml -->
+    <string name="defaultTextSearchEngineValue">google</string>
+    <string name="defaultImageSearchEngineValue">google</string>
+    <string name="defaultThemeName">Fishpowered</string>
+    <string name="defaultNavButton1Action">pinToWindow</string>
+    <string name="defaultNavButton1LongPressAction">copyPageUrl</string>
+    <string name="defaultNavButton2Action">refresh</string>
+    <string name="defaultNavButton2LongPressAction">navigateForward</string>
+    <string name="defaultAddressHintAction">searchOrEnterAddress</string>
+    <string name="defaultAddressHintLongPressAction">pasteToSearchOrGo</string>
+    <string name="defaultNavButton3Action">viewTabsOverview</string>
+    <string name="defaultNavButton3LongPressAction">newTab</string>
+    <string name="defaultNavButton4Action">showPageMenu</string>
+    <string name="defaultNavButton4LongPressAction">voiceSearch</string>
+    <string name="defaultPrivacyModeLevel">basic</string>
+    <string name="defaultGestureSwipeUpNavBar">closeTab</string>
+    <string name="defaultGestureSwipeDownWhenAtTop">pullTabDown</string>
+    <string name="defaultGestureEdgeSwipePercentage">5%</string>
+    <string name="defaultGestureSwipeFromRightEdgeV2">disabled</string>
+    <string name="defaultGestureSwipeFromLeftEdgeV2">disabled</string>
+    <string name="defaultClosingLastTabClosesBrowser">false</string>
+    <string name="defaultCloseAllTabsOnExit">false</string>
+    <string name="defaultAutoHideNavBar">true</string>
+    <string name="defaultHideSystemNavBar">false</string>
+    <string name="defaultDictionary">Wiktionary.org (multi-lingual)</string>
+    <string name="defaultShouldOpenRegularLinksInAppIfPossible">false</string>
+    <string name="defaultDownloadImages">always</string>
+    <string name="defaultGestureSwipeToChangeTabsBottomThreshold">100%</string>
+</resources>

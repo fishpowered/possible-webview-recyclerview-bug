@@ -1,0 +1,12 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="12dp"
+    android:height="12dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48"
+    android:tint="?mainNavBarIconColour">
+  <path
+      android:pathData="M46.2225,5.2034 L5.2034,46.2225C4.3423,45.9979 3.5686,45.5611 2.9571,44.9496l-0.0124,-0.0124C2.3332,44.3256 1.8964,43.5519 1.6718,42.6909L42.6908,1.6718c1.7221,0.4617 3.0699,1.8095 3.5316,3.5316zM36.4138,46.4096 L46.4096,36.4138v5.0041c0,1.3727 -0.5616,2.6206 -1.4725,3.5316 -0.8985,0.8985 -2.1464,1.4601 -3.5191,1.4601zM46.4096,17.1834v7.0632L24.2466,46.4096h-7.0632z"
+      android:fillColor="#aaFFFFFF"
+      />
+    <!-- fill colour transparency + theme tint = desired look -->
+</vector>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/ic_fishpowered_loading_anim_frame_2" android:duration="80" />
+    <item android:drawable="@drawable/ic_fishpowered_loading_anim_frame_3" android:duration="80" />
+    <item android:drawable="@drawable/ic_fishpowered_loading_anim_frame_4" android:duration="80" />
+    <item android:drawable="@drawable/ic_fishpowered_loading_anim_frame_5" android:duration="80" />
+    <item android:drawable="@drawable/ic_fishpowered_loading_anim_frame_6" android:duration="80" />
+
+</animation-list>

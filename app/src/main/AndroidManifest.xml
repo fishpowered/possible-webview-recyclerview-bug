@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="fishpowered.best.browser">
+
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- Required for file downloads (granted after android prompted) -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- Required for voice searching (granted after android prompted) -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- Required for web pages that need voice/voice searches (after user prompt) -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- Required for web pages that need location -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- Required for TTS playback -->
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_fishpowered_illuminated_logo"
+        android:roundIcon="@mipmap/ic_fishpowered_illuminated_logo_round"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:supportsRtl="true"
+        android:theme="@style/Fishpowered"
+        android:usesCleartextTraffic="true"
+        tools:ignore="UnusedAttribute">
+        <!-- note: requestLegacyExternalStorage is required because android 10 uses a concept of scoped storage and i cba to support it right now (TEST WITH BASE64 IMAGE DOWNLOADS WHEN TESTING) -->
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/app_shortcuts" />
+        <!-- Google's safe browsing protection -->
+        <meta-data
+            android:name="android.webkit.WebView.EnableSafeBrowsing"
+            android:value="true" />
+        <meta-data
+            android:name="android.webkit.WebView.MetricsOptOut"
+            android:value="true" /> <!-- Don't send usage data to Google -->
+        <!-- FileProvider is to provide a way of downloading remote images to a local cache without needing permissions -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="fishpowered.best.browser.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider> <!-- configChanges = Allow the webview to persist when the screen is rotated, see Browser.onConfigurationChanged for manaual handling when any of the config or screen sizes change, multiwindow etc -->
+        <!-- resizableActivity = Allow app to support multi-window -->
+        <!-- launchMode+alwaysRetainTaskState = Allow the webview to persist when activity is destroyed? -->
+        <!--
+             <browser
+            android:name=".Browser"
+            android:label="@string/title_activity_browser"></browser>
+        -->
+        <activity
+            android:name=".Browser"
+            android:alwaysRetainTaskState="true"
+            android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout"
+            android:hardwareAccelerated="true"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance"
+            android:resizeableActivity="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.APP_BROWSER" />
+            </intent-filter>
+
+            <!-- Default browser intents -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <!--<data android:scheme="about" />
+                <data android:scheme="javascript" />-->
+            </intent-filter>
+            <intent-filter>
+                <!-- Allows activity to be opened for links around the OS -->
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="file" />
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:mimeType="text/html"/>
+                <data android:mimeType="text/plain"/>
+                <data android:mimeType="application/xhtml+xml"/>
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.WEB_SEARCH" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <intent-filter>
+                <!-- This makes it show up in the "share" list in other apps. It intercepts any text so people can search on anything -->
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/*"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/app_shortcuts" />
+
+        </activity>
+
+        <service
+            android:name=".services.IncognitoModeNotificationService"
+            android:enabled="true"
+            android:exported="false">
+            <!-- ^ exported="true" allows other activities to start the service -->
+            <intent-filter>
+                <action android:name="fishpowered.best.browser.CLOSE_INCOGNITO_MODE" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

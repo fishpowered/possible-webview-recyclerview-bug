@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <style type="text/css">
+            p {background: gray; padding: 100px;}
+        </style>
+    </head>
+    <body>
+    <div>other text
+        <p>Some test text <a href="http://autosport.com">link test</a> test</p>
+        <p>Some test text <a href="http://autosport.com" target="_blank">link test</a> test</p>
+        <button>Button text</button>
+    </div>
+    </body>
+</html>
+<script type="text/javascript">
+   // THIS VERSION ATTEMPTS TO SELECT ANY TEXT UNDER THE CURSOR ON LONG CLICK
+   try{
+    var body = document.getElementsByTagName("body")[0];
+    var longpress = false;
+    var presstimer = null;
+    var longtarget = null;
+    function selectText(container) {
+        if(!window.getSelection){
+            return;
+        }
+        var s = window.getSelection();
+        if(s.rangeCount > 0){s.removeAllRanges();}
+        var range = document.createRange();
+        range.selectNode(container);
+        s.addRange(range);
+    }
+    var cancel = function(e) {
+        if (presstimer !== null) {
+            clearTimeout(presstimer);
+            presstimer = null;
+        }
+    };
+
+    var click = function(e) {
+        if (presstimer !== null) {
+            clearTimeout(presstimer);
+            presstimer = null;
+        }
+        if (longpress) {
+            e.preventDefault();
+            return false;
+        }
+    };
+    var start = function(e) {
+        if (e.type === "click" && e.button !== 0) {
+            return;
+        }
+        longpress = false;
+        presstimer = setTimeout(function(e) {
+            if(!e || !e.target){
+                return;
+            }
+            if(e.target && (e.target.onclick || e.target.tagName=='A' || e.target.tagName=='BUTTON')){
+                selectText(e.target);
+                var linkTxt = (e.target.textContent+'').trim();
+                var href = e.target.getAttribute("href") || e.target.getAttribute("src");
+                //alert("long click "+ href + " = "+linkTxt);
+                fpandroid.setSelectedItem("hyperlink", linkTxt, href);
+            }
+            longpress = true;
+        }, 500, e);
+
+        return false;
+    };
+    body.addEventListener("mousedown", start);
+    body.addEventListener("touchstart", start);
+    body.addEventListener("click", click);
+    body.addEventListener("mouseout", cancel);
+    body.addEventListener("touchend", cancel);
+    body.addEventListener("touchleave", cancel);
+    body.addEventListener("touchcancel", cancel);
+}catch(capErr){
+    Console.log("Failed capturing long press text selection: "+capErr);
+}
+    </script>

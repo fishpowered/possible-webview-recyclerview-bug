@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#444444</color>
+    <color name="colorPrimaryDark">#111111</color>
+    <color name="colorAccent">#ff0066</color>
+    <color name="colorAccentSecondary">#69d9ff</color>
+    <color name="browserToolBarTextIconColour">#ffffff</color>
+    <color name="notificationHintBackground">#87333333</color>
+    <color name="videoBackgroundColour">#000000</color>
+    <!-- <color name="speedDialListFaveTheme">#EF619D</color> moved to attr.xml -->
+    <color name="speedDialListWhatsHotTheme">#ff6600</color>
+    <color name="speedDialListHistoryTheme">#8bc62b</color>
+    <color name="privateModeBackground">#212131</color>
+    <color name="privateModeIconColour">#77b6ff</color>
+    <color name="tab_overview_btn_border_and_txt_colour">#777777</color>
+    <color name="close_all_red">#880000</color>
+    <color name="video_controls">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="tab_overlay_darken">#d5000000</color>
+    <color name="overlay_darken_subtle">#44000000</color>
+</resources>

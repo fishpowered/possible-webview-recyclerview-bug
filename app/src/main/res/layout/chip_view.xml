@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/chip_view_layout"
+    android:paddingLeft="6dp"
+    android:paddingRight="6dp"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:clickable="true"
+    android:longClickable="true"
+    android:focusable="true">
+
+    <!-- WHEN CHANGING THE PADDING IT ALSO NEEDS TO BE CHANGED IN @link SpeedDialItemChipViewHolder.updatePadding -->
+    <TextView
+        style="@style/chip_view_common_styles"
+        android:id="@+id/chip_view"
+    />
+    <TextView
+        android:id="@+id/chip_view_show_more_hint"
+        style="@style/speed_dial_show_more_ellipsis"
+        android:layout_gravity="bottom|right"
+        android:paddingBottom="7dp"
+        android:layout_marginRight="8dp"
+        android:textAlignment="textStart"
+        android:visibility="gone"
+        tools:ignore="RtlCompat,RtlHardcoded,RtlSymmetry" />
+</FrameLayout>

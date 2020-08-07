@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+    <!-- Button foreground -->
+    <shape xmlns:android="http://schemas.android.com/apk/res/android">
+        <solid android:color="?chipViewFaceColour" />
+        <padding
+            android:left="14dp"
+            android:top="11dp"
+            android:right="14dp"
+            android:bottom="12dp"
+            />
+        <corners android:radius="6dp" />
+    </shape>
+    </item>
+</selector>

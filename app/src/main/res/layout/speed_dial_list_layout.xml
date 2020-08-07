@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_weight="1">
+            <fishpowered.best.browser.speeddial.item.SpeedDialItemRecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/speed_dial_vertical_list_recycler_view"
+                android:paddingTop="0dp"
+                android:paddingBottom="60dp"
+                android:clipToPadding="false"
+                android:scrollbars="none"
+                android:overScrollMode="never"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                >
+                <!-- List items like faves and history rows are injected here
+                android:requiresFadingEdge="horizontal|vertical"
+                android:cacheColorHint="?speedDialBgColour" doesn't seem to work?
+                -->
+            </fishpowered.best.browser.speeddial.item.SpeedDialItemRecyclerView>
+</androidx.constraintlayout.widget.ConstraintLayout>

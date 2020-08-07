@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tab_overview_thumbs_view_holder_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:paddingStart="@dimen/tab_thumb_padding"
+    android:paddingEnd="@dimen/tab_thumb_padding"
+    >
+    <!-- THE VIEWHOLDER LAYOUT ABOVE MUST MATCH PARENT HEIGHT OTHERWISE U CAN'T SIDE SWIPE USING FULL HEIGHT OF THE SCREEN.
+     THIS MEANS WE NEED AN EXTRA WRAPPER BELOW FOR VERTICAL CENTERING -->
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/tab_top_guideline"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/tab_bottom_guideline"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/tab_overview_thumb_border"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?navBarGradientEndColour"
+        app:layout_constraintBottom_toBottomOf="@id/tab_bottom_guideline"
+        app:layout_constraintTop_toTopOf="@id/tab_top_guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        android:padding="1dp"
+        android:elevation="10dp">
+        <!-- WIDTH/HEIGHT ABOVE NEEDS TO BE SET PROGRAMMATICALLY AS A PERCENTAGE OF SCREEN WIDTH -->
+        <ImageView
+            android:id="@+id/tab_overview_thumb_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tab_thumb_page_title"
+            android:scaleType="centerCrop"
+            />
+        <TextView
+            android:id="@+id/tab_thumb_page_title"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:maxLines="1"
+            android:textSize="10sp"
+            android:ellipsize="end"
+            android:padding="2dp"
+            android:textColor="?mainNavBarIconColour"
+            android:textAlignment="center"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="SmallSp"
+            android:background="?addressBarBackgroundAttr"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

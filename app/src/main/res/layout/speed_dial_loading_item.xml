@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_weight="1"
+    >
+    <TextView
+        android:id="@+id/loading_item_text_view"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:foregroundGravity="center"
+        android:textSize="35dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:paddingLeft="5dp"
+        android:paddingStart="5dp"
+        android:paddingRight="15dp"
+        android:paddingEnd="15dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="0dp"
+        android:layout_marginTop="10dp"
+        android:ellipsize="end"
+        android:text="..."
+        android:singleLine="false"
+        android:maxLines="1"
+        android:scrollHorizontally="false"
+        android:textColor="?speedDialLoadingText"
+        />
+
+</FrameLayout>

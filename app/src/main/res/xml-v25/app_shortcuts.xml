@@ -1,0 +1,32 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="newTabAppShortcut"
+        android:enabled="true"
+        android:icon="@drawable/ic_nav_bar_add_tab_28dp"
+        android:shortcutShortLabel="@string/new_tab"
+        >
+        <intent
+            android:action="fishpowered.best.browser.new_tab"
+            android:targetPackage="fishpowered.best.browser"
+            android:targetClass="fishpowered.best.browser.Browser" />
+        <!-- If your shortcut is associated with multiple intents, include them
+             here. The last intent in the list determines what the user sees when
+             they launch this shortcut. -->
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+    <shortcut
+        android:shortcutId="newPrivateTabAppShortcut"
+        android:enabled="true"
+        android:icon="@drawable/ic_private_mode_mask_padded"
+        android:shortcutShortLabel="@string/new_incognito_tab"
+        >
+        <intent
+            android:action="fishpowered.best.browser.new_incognito_tab"
+            android:targetPackage="fishpowered.best.browser"
+            android:targetClass="fishpowered.best.browser.Browser" />
+        <!-- If your shortcut is associated with multiple intents, include them
+             here. The last intent in the list determines what the user sees when
+             they launch this shortcut. -->
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+</shortcuts>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Used when sharing images from the internet to create a temp image to download to -->
+    <cache-path name="shared_images" path="images/"/>
+    <cache-path name="text_to_speech_gen" path="text_to_speech_gen/"/>
+    <!-- Used when downloading files to allow external apps to open downloaded files -->
+    <external-path name="attachment_file" path="."/>
+</paths>

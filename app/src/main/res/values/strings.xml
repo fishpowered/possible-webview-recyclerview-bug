@@ -1,0 +1,529 @@
+<resources>
+    <string name="app_name">Fishpowered</string>
+    <string name="title_back">Back</string>
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="default_option">Default</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="default_address_bar_text">Search or enter address…</string>
+    <string name="title_refresh">Refresh</string>
+    <string name="title_activity_browser">Browser</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_speed_dial">SpeedDial</string>
+    <string name="title_activity_edit_fave">Edit</string>
+    <string name="title_activity_add_fave">Add favourite</string>
+    <string name="error_saving_please_try_again">Error saving. Please check the values and try again.</string>
+    <string name="saved">Saved</string>
+
+    <!-- Add/Edit Item page -->
+    <string name="item_title_field">Title (optional)</string>
+    <string name="item_address_field">Address</string>
+    <string name="item_address_hint">e.g. example.com</string>
+    <string name="item_address_required">Please enter an address to the website</string>
+    <string name="item_address_error">Please check this is a valid address</string>
+    <string name="item_limit_daily_usage">Limit daily usage (optional)</string>
+    <string name="item_daily_usage_hint">minutes</string>
+    <string name="item_daily_usage_error">Please enter a daily usage limit in minutes e.g. 30</string>
+    <string name="add">add</string>
+    <string name="faves">Faves</string>
+    <string name="history">History</string>
+    <string name="title_activity_browser2">Browser2</string>
+    <string name="closed_xxxx">Closed %s</string>
+    <string name="undo">Undo</string>
+    <string name="copied_xxxx">Copied "%s"</string>
+    <string name="trusted_switch_label">Trusted (shows media if safe mode on)</string>
+    <string name="fave_switch_label">Favourite</string>
+    <string name="deleted">Deleted</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="yes_answer">Yes</string>
+    <string name="no_answer">No</string>
+    <string name="view">view:</string>
+    <string name="fave_pages_tag">Faves</string>
+    <string name="hot_pages_tag">Hot</string>
+    <string name="fave_quotes_title">Quotes</string>
+    <string name="fave_videos_title">Videos</string>
+    <string name="fave_images_title">Images</string>
+    <string name="clear">Clear</string>
+    <string name="most_popular">Most popular</string>
+    <string name="dialog_continue">Continue</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="most_visited_last_48h">What\'s hot</string>
+    <string name="most_time_spent_last_48h">What\'s hot</string>
+    <string name="delete_all">Delete all</string>
+    <string name="quickly_add_favourites_tip">Quickly add favourites by typing the address below and pressing \'Add\' or using the ❤ button when viewing a page, image or text.</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_appearance">Appearance</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="default_dictionary">Dictionary</string>
+    <string-array name="gesture_swipe_to_change_tab_entries">
+        <item>Full screen (default)</item>
+        <item>Bottom half of screen</item>
+        <item>Bottom quarter of screen</item>
+        <item>Navigation bar only</item>
+    </string-array>
+    <string-array name="gesture_swipe_up_nav_bar_titles">
+        <item>Close tab</item>
+        <item>Show speed dial</item>
+        <item>Refresh</item>
+        <item>Disabled</item>
+    </string-array>
+    <string-array name="gesture_swipe_from_edge_titles">
+        <item>Switch tabs</item>
+        <item>Navigate back</item>
+        <item>Navigate forward</item>
+        <item>Disabled</item>
+    </string-array>
+    <string-array name="gesture_swipe_down_when_at_top_titles">
+        <item>Easy reach mode (default)</item>
+        <item>Refresh</item>
+        <item>Show speed dial</item>
+        <item>View Faves list</item>
+        <item>View What\'s hot list</item>
+        <item>View Saved for later list</item>
+        <item>View History list</item>
+        <item>View open tabs</item>
+        <item>Disabled</item>
+    </string-array>
+    <string name="default_text_search_engine">Text search engine</string>
+    <string name="default_image_search_engine">Image search engine</string>
+    <string name="default_translation_engine">Translations</string>
+    <string-array name="default_translation_engine_list_titles">
+        <item>Google Translate</item>
+    </string-array>
+    <string-array name="default_translation_engine_list_values">
+        <item>google</item>
+    </string-array>
+    <string-array name="default_text_search_engine_list_titles">
+        <item>Ask</item>
+        <item>Baidu</item>
+        <item>Bing</item>
+        <item>Duck duck go</item>
+        <item>Ecosia (plants trees for searches)</item>
+        <item>Google</item>
+        <item>Wolfram Alpha</item>
+        <item>Yandex</item>
+    </string-array>
+    <string-array name="trending_search_location_titles">
+        <item>Automatic</item>
+        <item>Global</item>
+        <item>Canada</item>
+        <item>Germany</item>
+        <item>Italy</item>
+        <item>Japan</item>
+        <item>Russia</item>
+        <item>Spain</item>
+        <item>United Kingdom</item>
+        <item>United States</item>
+        <item>Disabled</item>
+    </string-array>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="nav_button_option_titles">
+        <item>Search or enter/edit address</item>
+        <item>Voice search</item>
+        <item>Navigate back</item>
+        <item>Navigate forward</item>
+        <item>Refresh/stop</item>
+        <item>Copy page URL</item>
+        <item>Visit copied URL</item>
+        <item>Share page URL</item>
+        <item>Open new tab</item>
+        <item>View open tabs</item>
+        <item>View closed tabs</item>
+        <item>Close all tabs</item>
+        <item>Toggle privacy/incognito mode</item>
+        <item>Open page menu</item>
+        <item>Show speed dial</item>
+        <item>View Faves list</item>
+        <item>View What\'s hot list</item>
+        <item>View Saved for later list</item>
+        <item>View History list</item>
+        <item>Go to search engine home page</item>
+        <item>Go to custom home page/address</item>
+        <item>Pin tab to floating window</item>
+        <item>Move page down for easy reach</item>
+        <item>Open settings</item>
+        <item>Cats</item>
+        <item>No action/hidden</item>
+    </string-array>
+
+    <string-array name="multi_select_list_preference_default_value" />
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+    <string name="pref_header_theme">Theme</string>
+    <string name="pref_content_category_title">Content</string>
+    <string name="pref_header_customise_nav_bar">Customise buttons</string>
+    <string name="pref_header_history">History</string>
+    <string name="pref_coming_soon">Coming soon</string>
+    <string name="hide_cookie_warnings">Block privacy/cookie warnings</string>
+    <string name="dont_load_images">Block images/videos</string>
+    <string name="hide_cookie_warnings_description">This won\'t block websites using cookies but will try and hide the warnings for them</string>
+    <string name="dont_load_images_description">Useful for saving data usage abroad</string>
+    <string name="pref_header_searching">Searching</string>
+    <string name="coming_soon">Coming soon</string>
+    <string name="background_gradient_begin">Background gradient begin</string>
+    <string name="background_gradient_end">Background gradient end</string>
+    <string name="hex_colour_value">Hex colour value</string>
+    <string name="title_activity_browser_settings">Settings</string>
+    <string name="quick_press_address_hint">Quick press address hint</string>
+    <string name="long_press_address_hint">Long press address hint</string>
+    <string name="open_keyboard_with_speed_dial">Open keyboard when viewing speed dial</string>
+    <string name="fave_added">Fave added</string>
+    <string name="send_crash_reports">Automatically send crash reports</string>
+    <string name="send_crash_reports_summary">Anonymous crash reporting by Crashlytics</string>
+    <string name="downloading">Downloading…</string>
+    <string name="msg_file_downloaded">Downloaded</string>
+    <string name="failed_to_upload_file">Failed to upload file</string>
+    <string name="failed_to_download_file">Failed to download file</string>
+    <string name="tabs">Tabs</string>
+    <string name="search_suggestions">Suggestions</string>
+    <string name="fave_pages_title">Pages</string>
+    <string name="open_tabs">Open tabs (%s)</string>
+    <string name="none_found">None found…</string>
+    <string name="recently_closed">Recently closed</string>
+    <string name="closed_tabs">closed tabs</string>
+    <string name="add_xxxx">Add "%s"</string>
+    <string name="unable_to_open_url_xxxx">Unable to open URL "%s". Try installing the relevant app</string>
+    <string name="show_more_abbr">...</string>
+    <string name="the_page_would_like_to_access_your_location">The page would like to access your location</string>
+    <string name="allow">Allow</string>
+    <string name="deny">Deny</string>
+    <string name="ssl_certificate_error">Security certificate error</string>
+    <string name="certificate_not_trusted_site_may_be_unsafe">This site (or part of it\'s content) uses an untrusted security certificate. Your browsing activity on this site may not be secure.</string>
+    <string name="do_you_want_to_continue">Do you want to continue?</string>
+    <string name="block_ads">Block ads+trackers</string>
+    <string name="recent_searches">Recent searches</string>
+    <string name="quick_press_nav_button">Quick press action</string>
+    <string name="long_press_nav_button">Long press action</string>
+    <string name="support_development">Help improve this app</string>
+    <string name="type_an_address_below_to_start_adding_faves">Enter an address below and $ADD_TO_FAVES_ICON$ to quickly add your favourite web sites…</string>
+    <string name="close_all">close all</string>
+    <string name="clear_all">clear all</string>
+    <string name="new_tab">New tab</string>
+    <string name="new_incognito_tab">Incognito mode</string>
+    <string name="all_tabs_closed">All tabs closed</string>
+    <string name="xxxx_removed_from_history">%s removed from history</string>
+    <string name="remove_DATE_from_browsing_history">Remove all browsing history for: %s</string>
+    <string name="remove_DOMAIN_from_browsing_history">Remove browsing history on %s</string>
+    <string name="remove_browsing_history_on_WEBSITE_for_DATE">Remove browsing history on "%s" for "%s"</string>
+    <string name="clear_browsing_history">Clear browsing history</string>
+    <string name="clear_ALL_browsing_history">Clear ALL browsing history?</string>
+    <string name="last_hour">Last hour</string>
+    <string name="last_3_hours">Last 3 hours</string>
+    <string name="last_6_hours">Last 6 hours</string>
+    <string name="last_12_hours">Last 12 hours</string>
+    <string name="last_24_hours">Last 24 hours</string>
+    <string name="last_48_hours">Last 48 hours</string>
+    <string name="on_specific_website">On specific website</string>
+    <string name="on_specific_date">On specific date</string>
+    <string name="long_press_the_date_you_wish_to_clear">Long press the date you wish to clear</string>
+    <string name="long_press_an_item_from_the_website_you_wish_to_clear">Long press the website you wish to clear</string>
+    <string name="last_10_mins">Last 10 minutes</string>
+    <string name="last_30_mins">Last 30 minutes</string>
+    <string name="clear_all_history_cookies_and_datax">Clear all history, caches and cookies</string>
+    <string name="pref_header_searching_lookup">Searching &amp; Lookup</string>
+    <string name="privacy_mode">Incognito mode</string>
+    <string name="privacy_mode_level">Incognito mode protection</string>
+    <string name="protection_level">Protection level</string>
+    <string name="link_copied">Link copied</string>
+    <string name="entering_privacy_mode">Entering incognito mode</string>
+    <string name="privacy_mode_protection_can_be_changed_in_settings">Incognito mode can be changed in the settings</string>
+    <string name="privacy_help_lite">
+        What it does:\n
+        - Prevent your search/browsing history being recorded on your phone\n
+        - Blocks ads and tracking cookies\n
+    </string>
+    <string name="privacy_help_standard">
+        What it does:\n
+        - Prevent your search/browsing history being recorded on your phone\n
+        - Blocks ads and tracking cookies\n
+        - Duckduckgo.com becomes default search provider\n
+        - Clears all cookies at end of session
+    </string>
+    <string name="privacy_help_serious">
+        What it does:\n
+        - Everything standard level does plus..\n
+        - Duckduckgo becomes the default search engine (no search history)
+        </string>
+    <string name="privacy_help_extreme">
+        What it does:\n
+        - Everything standard level does plus..\n
+        - Prevent you sending/receiving unencrypted data from the web (https is mandatory)\n
+        - Block the page loading sending/receiving data from/to other domains (ads, tracking, images etc)\n
+        \nIMPORTANT:\n
+        - Many web sites may not work fully in this mode
+    </string>
+    <string name="privacy_mode_basic">Standard</string>
+    <string name="privacy_mode_serious">Serious</string>
+    <string name="privacy_mode_extreme">Extreme</string>
+    <string name="dialog_ok">OK</string>
+    <string name="clear_cookies_on_close">Clear cookies (logout) on close</string>
+    <string name="select_a_level_to_learn_more">"%s" - select a level to learn more.</string>
+    <string name="share_with">Share with…</string>
+    <string name="share">Share</string>
+    <string name="pin_to_window_abbr">To window</string>
+    <string name="read_later_abbr">Read later</string>
+    <string name="watch_later_abbr">Watch later</string>
+    <string name="translate_abbr">Translate</string>
+    <string name="fave_abbr">Fave</string>
+    <string name="find_in_page_abbr">Find in page</string>
+    <string name="site_settings_abbr">Settings</string>
+    <string name="sharing">Sharing…</string>
+    <string name="settings_warning_speed_dial_unmapped">Warning: \'Search/edit page address\' or speed dial is unassigned!</string>
+    <string name="settings_warning_page_menu_unmapped">Warning: \'Open page menu\' is unassigned!</string>
+    <string name="home_page_address">Custom home page address</string>
+    <string name="copied">Copied</string>
+    <string name="find_text_in_page">Find text in page…</string>
+    <string name="voice_search_prompt">Listening…</string>
+    <string name="auto_hide_nav_bar_title">Hide nav bar when scrolling</string>
+    <string name="click_button_to_edit">Click button below to change it\'s actions:</string>
+    <string name="browser_settings">Browser settings</string>
+    <string name="site_preferences_dialog_title">%s settings:</string>
+    <string name="block_site_seeing_your_location">Block site using GPS</string>
+    <string name="compact_size">Compact interface</string>
+    <string name="clear_history_btn_title">clear history</string>
+    <string name="address_copied">Address copied</string>
+    <string name="trending">Trending</string>
+    <string name="trending_search_location">Trending hashtags location</string>
+    <string name="report_a_problem">Report a problem</string>
+    <string name="send_feedback_title">Send feedback to the developer</string>
+    <string name="send_feedback_summary">Help grow and influence the future of the app!</string>
+    <string-array name="privacy_mode_titles">
+        <item>Lite</item>
+        <item>Standard (default)</item>
+        <item>Extreme</item>
+    </string-array>
+    <string-array name="download_images_options">
+        <item>Always</item>
+        <item>Only on Wi-Fi</item>
+        <item>Never</item>
+    </string-array>
+    <string name="title_activity_report_aproblem">Report a problem</string>
+    <string name="visit_play_store_title">Visit Google Play Store</string>
+    <string name="visit_play_store_summary">Rate, share, update, or uninstall Fishpowered (v%s)</string>
+    <string name="problem_with_a_web_page_try_disabling_hint">Problem with a web page?</string>
+    <string name="try_disabling_blockers">Try disabling ad and cookie warning blockers for the site…</string>
+    <string name="still_having_problems">Still having problems?</string>
+    <string name="report_a_problem_template">
+        Please attach any relevant videos/screenshots and provide the following information:\n\n
+        - Web page address (if applicable):\n\n\n
+        - Steps to reproduce problem:\n\n\n
+        - Expected outcome:\n\n\n
+        - Actual outcome:\n\n\n
+        - Can we contact you regarding the bug (if required)?:\n\n\n
+        Many thanks\n
+        Fishpowered team\n\n
+        - Basic device and browser info listed below to help us help you -\n\n
+        Device: %s \n
+        Android version: %s \n
+        Fishpowered version: %s \n
+        Google Chrome version: %s \n
+        Browser settings: %s \n
+        Last error: %s \n
+    </string>
+    <string name="click_the_button_to_send_us_an_email">Please click the button to send us an email and let us know
+        what happened. We\'re sorry for any inconvenience!</string>
+    <string name="select_preferred_email_client">Select preferred email app…</string>
+    <string name="is_google_chrome_and_fishpowered_up_to_date">Are Chrome and Fishpowered apps up to date?</string>
+    <string name="google_chrome_needs_to_be_kept_up_to_date_because">Google Chrome needs to be kept up-to-date because
+        Fishpowered is built on top of it\'s browser engine. Please check both apps are up to date in Google Play Store.</string>
+    <string name="send_feedback_template">
+        Thank you for contributing! The following information would really help us out:\n\n
+        - How did you hear about Fishpowered?\n\n\n
+        - How long have you been using it?\n\n\n
+        - What are your favourite features?\n\n\n
+        - What don\'t you like and how could it be improved?\n\n\n
+        - Which features would you most like to see developed/improved?\n\n\n
+        - If we ever decide to monetise Fishpowered, what do you think would be a fair way to do so? e.g. sponsored bookmarks, premium themes, merchandise, other? \n\n\n
+        - Any other feedback?\n\n\n
+        - Do you wish to hear back from us?\n\n\n
+        Many thanks &lt;3\n
+        Fishpowered team\n\n
+        - Basic device and browser info listed below to help us help you -\n\n
+        Device: %s \n
+        Android version: %s \n
+        Fishpowered version: %s \n
+        Browser settings: %s \n
+    </string>
+    <string name="report_a_problem_summary">Tips for fixing problems with websites and bug reporting</string>
+    <string name="close_tab">Close tab</string>
+    <string name="minimise_tab">Minimise tab</string>
+    <string name="drag_a_little_higher_to_close">Drag a little higher to close tab</string>
+    <string name="block_tracking_cookie">Block advertisers tracking you</string>
+    <string name="block_tracking_cookies_summary">Blocks cookies+requests used by advertisers to show ads related to what you have previously viewed</string>
+    <string name="pref_privacy_category_title">Privacy</string>
+    <string name="default_text_size">Default text size (percent)</string>
+    <string name="incognito_mode">incognito mode</string>
+    <string name="go_incognito"> go incognito</string>
+    <string name="incognito_mode_active">incognito mode active</string>
+    <string name="hold_to_unlock">&lt;&lt;&lt; Hold to unlock</string>
+    <string name="screen_locked_you_can_now_sleep_phone">Screen locked. Pocket ready.</string>
+    <string name="screen_unlocked">Screen unlocked</string>
+    <string name="added_to_watch_later">Added to watch later list</string>
+    <string name="added_to_read_later">Added to read later list</string>
+    <string name="saved_for_later_heading">Saved for later</string>
+    <string name="read_later_intro_text">Short on time? Press the $ADD_TO_READ_LATER_ICON$ button on a page or link and it will be saved here…</string>
+    <string name="previously_read_watched">Previously read/watched</string>
+    <string name="sites_you_recently_visited_will_appear_here">The top sites you recently visited will appear here…</string>
+    <string name="added_to_saved_for_later">Added to "Saved for later" list</string>
+    <string name="removed_from_saved_for_later">Removed from \"Saved for later\"</string>
+    <string name="remove_from_list">Remove from list?</string>
+    <string name="added_to_fave_images">Added to fave images</string>
+    <string name="added_to_fave_videos">Added to fave videos</string>
+    <string name="added_to_fave_quotes">Added to fave quotes</string>
+    <string name="xxx_added_to_fave_pages">%s added to fave pages</string>
+    <string name="edit">Edit</string>
+    <string name="remove">Remove</string>
+    <string name="web_page">Web page</string>
+    <string name="image">Image/gif</string>
+    <string name="video">Video</string>
+    <string name="quote">Quote</string>
+    <string name="type">Type</string>
+    <string name="downloads">downloads</string>
+    <string name="leaving_google_amp">Leaving Google AMP…</string>
+    <string name="label_play">Play</string>
+    <string name="label_pause">Pause</string>
+    <string name="label_next">Next</string>
+    <string name="label_previous">Previous</string>
+    <string name="pref_content_category_gestures">Gestures</string>
+    <string name="swipe_up_nav_bar">Swipe up address bar</string>
+    <string name="swipe_from_edge">Swipe from edge</string>
+    <string name="swipe_from_edge_threshold">Swipe from edge threshold</string>
+    <string name="swipe_from_left_edge">Swipe from left edge of tab</string>
+    <string name="swipe_from_right_edge">Swipe from right edge of tab</string>
+    <string name="other">Other</string>
+    <string name="add_tag">Add tag</string>
+    <string name="done">Done</string>
+    <string name="tags">Tags</string>
+    <string name="edit_tag_xxxx">Tag \"%s\"</string>
+    <string name="edit_tag">Edit tag</string>
+    <string name="full_history">View full history</string>
+    <string name="full_screen_except_time_bar">Full screen mode</string>
+    <string name="swipe_up_from_bottom_to_see_the_nav_bar">Swipe up from the bottom of the screen to see the system nav bar again.</string>
+    <string name="full_screen_enabled">Full screen enabled</string>
+    <string name="media_controls_notification_channel_title">Media controls</string>
+    <string name="unable_to_open_file">Unable to open file</string>
+    <string name="open">Open</string>
+    <string name="download">Download</string>
+    <string name="tip_select_recipe_amounts_to_convert_units">Tip: select recipe amounts to easily convert</string>
+    <string name="convert_cups_to_grams">Convert cups to grams or ounces</string>
+    <string name="more">More</string>
+    <string name="permission_granted_you_can_now_start_download">Permission granted. You may now start download.</string>
+    <string name="error_downloading_file">Error downloading file</string>
+    <string name="error_downloading_to_location">Error downloading to location</string>
+    <string name="download_cancelled">Download cancelled</string>
+    <string name="download_abbr">D\'load</string>
+    <string name="faved_abbr">Faved</string>
+    <string name="speak_abbr">Listen</string>
+    <string name="rewind">Rewind</string>
+    <string name="stop">Stop</string>
+    <string name="fast_forward">Fast forward</string>
+    <string name="page_could_not_be_read_or_no_text_found">Page could not be read or no text found</string>
+    <string name="privacy_mode_lite">Lite</string>
+    <string name="certificate_expired">This site (or part of it\'s content) uses an expired security certificate. Your browsing activity on this site may not be secure.</string>
+    <string name="certificate_hostname_mismatch">This site (or part of it\'s content) is using an invalid security certificate. Your browsing activity on this site may not be secure.</string>
+    <string name="generic_certificate_error">This site (or part of it\'s contents) has an invalid security certificate. Your browsing activity on this site may not be secure.</string>
+    <string name="send_video_link_to_site">Open video download site?</string>
+    <string name="open_in_external_video_site_warning">Warning: Continue and you will be taken to a website that we have no affiliation with and what you do there is your responsibility. Downloading copyrighted videos may be illegal in your country.</string>
+    <string name="edit_fave">Edit fave</string>
+    <string name="tag_header">Tag</string>
+    <string name="closing_last_tab_closes_browser">Closing last tab closes browser</string>
+    <string name="close_all_tabs_on_exit">Close all tabs on exit</string>
+    <string name="swipe_down_at_top_of_page">Swipe down when page scrolled to top</string>
+    <string name="desktop_mode">Desktop mode</string>
+    <string name="close_pull_down_mode_hint">Swipe up to close easy reach mode</string>
+    <string name="minimum_text_size">Minimum text size</string>
+    <string name="custom_css_rules">Hide cookie warnings, ads, distractions etc. Click Add to get started</string>
+    <string name="custom_js_rules">Custom JS</string>
+    <string name="title_content_settings">Web content settings</string>
+    <string name="fonts_images_and_links">Text and images…</string>
+    <string name="content_blocking">Content blocking</string>
+    <string name="images">Images</string>
+    <string name="text_settings_title">Text</string>
+    <string name="download_images">Download images</string>
+    <string name="links">Links</string>
+    <string name="open_links_in_external_app">Open links in external apps</string>
+    <string name="view_offline_version">View offline version?</string>
+    <string name="dialog_yes">Yes</string>
+    <string name="dialog_no">No</string>
+    <string name="unable_to_save_page_for_offline_viewing">Unable to save page for offline viewing</string>
+    <string name="save_for_offline_viewing">Save for offline viewing?</string>
+    <string name="remember_for_session">remember answer</string>
+    <string name="going_online">Going online</string>
+    <string name="saved_for_later_download_complete">Page saved</string>
+    <string name="saving_page_for_offline_viewing">Saving page…</string>
+    <string name="voice_search">Voice search</string>
+    <string name="remove_all_finished_saved_for_later_items">Remove ALL finished (✔) pages or just this one?</string>
+    <string name="viewing_saved_page_refresh_to_see_latest">Viewing page offline. Refresh to go online.</string>
+    <string name="all">All</string>
+    <string name="just_this">Just this</string>
+    <string name="add_css_rule">^ Add rule to hide ads, popups, distractions etc</string>
+    <string name="tap_on_page_content_to_hide">Tap on the content you wish to hide whenever you view this site e.g. ads, cookie warnings etc.</string>
+    <string name="select_layers_to_hide">Select layers below until the desired content is hidden:</string>
+    <string name="dialog_save">Save</string>
+    <string name="custom_css_rule_added">Style added!</string>
+    <string name="custom_css_rule_warning_from_settings">If this causes problems please \"restore defaults\" in the \"hide spam\" tool and try another layer.</string>
+    <string name="custom_css_rule_warning_from_page_menu">If this causes problems please \"restore defaults\" in the \"hide spam\" tool and try another layer.</string>
+    <string name="rule_equals">Rule: %s</string>
+    <string name="unable_to_detect_content_that_will_style_reliably">Unable to detect content that can be styled reliably. Please try again.</string>
+    <string name="advanced_mode">advanced mode</string>
+    <string name="simple_mode">simple mode</string>
+    <string name="listen_mode_not_available_for_offline_pages">Listen mode not available for offline pages</string>
+    <string name="go_online">Go online</string>
+    <string name="your_browsing_history_will_appear_here">Your browsing history will appear here…</string>
+    <string name="copy">Copy</string>
+    <string name="delete">Delete</string>
+    <string name="more_options">More options</string>
+    <string name="hide_crap">Hide spam</string>
+    <string name="custom_styles">Custom styles:</string>
+    <string name="restore_defaults">Restore defaults</string>
+    <string name="swipe_to_change_tabs">Swipe left/right to change tabs</string>
+    <string name="tab_scroll">Scroll</string>
+    <string name="locked">Locked</string>
+    <string name="unlocked">Unlocked</string>
+    <string name="swipe_from_edges">Swipe from edges</string>
+    <string name="default_screen_edge_threshold">Default is 5% of screen width</string>
+    <string name="incognito_mode_notification_channel_title">Incognito mode</string>
+    <string name="exit_incognito_mode">Exit incognito mode</string>
+    <string name="night_mode">Night mode</string>
+</resources>
