@@ -41,105 +41,6 @@ public class TabAdapter extends RecyclerView.Adapter<TabViewHolder>{
         loadTabStateFromStore();
     }
 
-    public void loadTabStateFromStore() {
-        if(preferences.isPrivateBrowsingModeEnabled()){
-            return;
-        }
-        if(preferences.getInt(Browser.preference_tutorialsShown, 0) < 1){
-            // If the tutorial pages haven't been shown, show them first
-            preferences.edit()
-                    .putString(Browser.preference_savedOpenTabs, "[]")
-                    .putInt(Browser.preference_tutorialsShown, 1)
-                    .putInt(Browser.preference_savedTabPosition, 1)
-                    .apply();
-            TabState tutorialP0 = new TabState();
-            tutorialP0.address = "https://facebook.com"; // Privacy policy
-            tutorialP0.tabId = getNewTabId();
-            tabList.add(tutorialP0);
-            TabState tutorialP1 = new TabState();
-            tutorialP1.address = "https://instagram.com"; // Welcome page
-            tutorialP1.tabId = getNewTabId();
-            tabList.add(tutorialP1);
-            TabState tutorialP2 = new TabState();
-            tutorialP2.address = "https://instagram.com"; // Close tab page
-            tutorialP2.tabId = getNewTabId();
-            tabList.add(tutorialP2);
-            TabState tutorialP3 = new TabState();
-            tutorialP3.address = "https://facebook.com";
-            tutorialP3.tabId = getNewTabId();
-            tabList.add(tutorialP3);
-            TabState tutorialP4 = new TabState();
-            tutorialP4.address = "https://instagram.com";
-            tutorialP4.tabId = getNewTabId();
-            tabList.add(tutorialP4);
-        }else {
-            String savedTabDataJsonString = preferences.getString(Browser.preference_savedOpenTabs, "[]");
-            try {
-                JSONArray tabListJson = new JSONArray(savedTabDataJsonString);
-                int tabsAddedCount = 0;
-                for (int i = 0; i < tabListJson.length(); i++) {
-                    TabState tabState = TabState.loadFromJson(tabListJson.getJSONObject(i));
-                    if (tabState!=null && tabState.address != null && !tabState.address.equals("")) {
-                        tabState.restoreStateFromStorage = true;
-                        tabList.add(tabState);
-                        tabsAddedCount++;
-                    }
-                }
-            } catch (JSONException e) {
-                Log.e("FPBROWSER", "UNABLE TO RESTORE TABS, WIPING: " + savedTabDataJsonString);
-                // Invalid/out of date JSON? might be due to update. Clear the saved tabs and start again
-                preferences.edit().putString(Browser.preference_savedOpenTabs, "[]").apply();
-                Browser.silentlyLogException(e, browser);
-            }
-        }
-    }
-
-    // It is important we keep a unique ID for every tab that gets created (reopened ones should use their previous id), so the memory recycling works correctly
-    public int getNewTabId() {
-        final int lastId = preferences.getInt(Browser.preference_lastUsedTabId, 0);
-        final int newId = lastId + 1;
-        preferences.edit().putInt(Browser.preference_lastUsedTabId, newId).apply();
-        //Log.e("FOOMAN", "Creating new tab ID "+newId);
-        return newId;
-    }
-
-    /**
-     * Fast way to save current tab state that can be called often (in case of crash) but doesn't save back/forward history
-     */
-    public void saveBasicTabViewStatesToStore(){
-        if(preferences.isPrivateBrowsingModeEnabled() || browser.skipSavingTabStateWhilstClosing){
-            return;
-        }
-        // First save just the current URL's and tab IDs into preferences. This is our quick store we update often
-        JSONArray jsonTabList = new JSONArray();
-        for(TabState state : tabList){
-            try {
-                JSONObject jsonTabState = state.toJSON();
-                if(jsonTabState!=null) {
-                    jsonTabList.put(jsonTabState);
-                }
-            } catch (JSONException e) {
-                Log.e("FISHPOWERED", "Unable to serialise tab info: "+e.getMessage());
-                Browser.silentlyLogException(e, browser);
-            }
-        }
-        preferences.edit().putString(Browser.preference_savedOpenTabs, jsonTabList.toString()).apply();
-    }
-
-    /**
-     * Slow store of each tabs full back/forward history and current addresses
-     */
-    public void saveFullTabWebViewStatesToStore(){
-        if(preferences.isPrivateBrowsingModeEnabled() || browser.skipSavingTabStateWhilstClosing){
-            return;
-        }
-        saveBasicTabViewStatesToStore();
-        for(TabState state : tabList){
-            if(state.webView!=null && state.address!=null && !state.address.equals("")){
-            }
-        }
-    }
-
     /**
      * Called when RecyclerView needs a new {@link TabViewHolder} of the given type to represent
      * an item.
@@ -162,17 +63,11 @@ public class TabAdapter extends RecyclerView.Adapter<TabViewHolder>{
         final TabState tabState = tabList.get(position);
         boolean isChildWebView = tabState.parentWebView!=null; // e.g. launched by js window.open
         holder.bindDataToTab(tabState, isChildWebView);
-        if(tabState.clearHistoryWhenVisible){
-            holder.getWebView().clearHistory();
-            holder.getWebView().clearCache(true);
-        }
     }
 
     @Override
     public int getItemViewType(int position) {
         return 0;
-//        final TabState tabState = tabList.get(position); // this ensures new tabs don't get recycled from old closed ones
-//        return tabState.tabId;
     }
 
     @Override
@@ -327,6 +222,105 @@ public class TabAdapter extends RecyclerView.Adapter<TabViewHolder>{
             if(tabState.tabOpenedBy.equals(Browser.TAB_OPENED_BY_EXTERNAL_APP)){
                 Log.d("FPBACKBTN", "Clearing state that tab was opened externally for address: "+tabState.address);
                 tabState.tabOpenedBy = Browser.TAB_OPENED_BY_SPEED_DIAL_OR_SHOULD_RETURN_THERE;
+            }
+        }
+    }
+
+    public void loadTabStateFromStore() {
+        if(preferences.isPrivateBrowsingModeEnabled()){
+            return;
+        }
+        if(preferences.getInt(Browser.preference_tutorialsShown, 0) < 1){
+            // If the tutorial pages haven't been shown, show them first
+            preferences.edit()
+                    .putString(Browser.preference_savedOpenTabs, "[]")
+                    .putInt(Browser.preference_tutorialsShown, 1)
+                    .putInt(Browser.preference_savedTabPosition, 1)
+                    .apply();
+            TabState tutorialP0 = new TabState();
+            tutorialP0.address = "https://facebook.com"; // Privacy policy
+            tutorialP0.tabId = getNewTabId();
+            tabList.add(tutorialP0);
+            TabState tutorialP1 = new TabState();
+            tutorialP1.address = "https://instagram.com"; // Welcome page
+            tutorialP1.tabId = getNewTabId();
+            tabList.add(tutorialP1);
+            TabState tutorialP2 = new TabState();
+            tutorialP2.address = "https://instagram.com"; // Close tab page
+            tutorialP2.tabId = getNewTabId();
+            tabList.add(tutorialP2);
+            TabState tutorialP3 = new TabState();
+            tutorialP3.address = "https://facebook.com";
+            tutorialP3.tabId = getNewTabId();
+            tabList.add(tutorialP3);
+            TabState tutorialP4 = new TabState();
+            tutorialP4.address = "https://instagram.com";
+            tutorialP4.tabId = getNewTabId();
+            tabList.add(tutorialP4);
+        }else {
+            String savedTabDataJsonString = preferences.getString(Browser.preference_savedOpenTabs, "[]");
+            try {
+                JSONArray tabListJson = new JSONArray(savedTabDataJsonString);
+                int tabsAddedCount = 0;
+                for (int i = 0; i < tabListJson.length(); i++) {
+                    TabState tabState = TabState.loadFromJson(tabListJson.getJSONObject(i));
+                    if (tabState!=null && tabState.address != null && !tabState.address.equals("")) {
+                        tabState.restoreStateFromStorage = true;
+                        tabList.add(tabState);
+                        tabsAddedCount++;
+                    }
+                }
+            } catch (JSONException e) {
+                Log.e("FPBROWSER", "UNABLE TO RESTORE TABS, WIPING: " + savedTabDataJsonString);
+                // Invalid/out of date JSON? might be due to update. Clear the saved tabs and start again
+                preferences.edit().putString(Browser.preference_savedOpenTabs, "[]").apply();
+                Browser.silentlyLogException(e, browser);
+            }
+        }
+    }
+
+    // It is important we keep a unique ID for every tab that gets created (reopened ones should use their previous id), so the memory recycling works correctly
+    public int getNewTabId() {
+        final int lastId = preferences.getInt(Browser.preference_lastUsedTabId, 0);
+        final int newId = lastId + 1;
+        preferences.edit().putInt(Browser.preference_lastUsedTabId, newId).apply();
+        //Log.e("FOOMAN", "Creating new tab ID "+newId);
+        return newId;
+    }
+
+    /**
+     * Fast way to save current tab state that can be called often (in case of crash) but doesn't save back/forward history
+     */
+    public void saveBasicTabViewStatesToStore(){
+        if(preferences.isPrivateBrowsingModeEnabled() || browser.skipSavingTabStateWhilstClosing){
+            return;
+        }
+        // First save just the current URL's and tab IDs into preferences. This is our quick store we update often
+        JSONArray jsonTabList = new JSONArray();
+        for(TabState state : tabList){
+            try {
+                JSONObject jsonTabState = state.toJSON();
+                if(jsonTabState!=null) {
+                    jsonTabList.put(jsonTabState);
+                }
+            } catch (JSONException e) {
+                Log.e("FISHPOWERED", "Unable to serialise tab info: "+e.getMessage());
+                Browser.silentlyLogException(e, browser);
+            }
+        }
+        preferences.edit().putString(Browser.preference_savedOpenTabs, jsonTabList.toString()).apply();
+    }
+
+    /**
+     * Slow store of each tabs full back/forward history and current addresses
+     */
+    public void saveFullTabWebViewStatesToStore(){
+        if(preferences.isPrivateBrowsingModeEnabled() || browser.skipSavingTabStateWhilstClosing){
+            return;
+        }
+        saveBasicTabViewStatesToStore();
+        for(TabState state : tabList){
+            if(state.webView!=null && state.address!=null && !state.address.equals("")){
             }
         }
     }
